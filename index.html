@@ -171,7 +171,7 @@
                 </div>
                 <div class="absolute top-2.5 right-3">
                     <div class="text-[10px] sm:text-xs font-black text-sky-800 bg-white px-3 py-1 rounded-full shadow-sm flex items-center">
-                        <i class="fa-solid fa-star text-amber-400 mr-1.5"></i> 得分：<span id="scoreText">0</span>
+                        <i class="fa-solid fa-star text-amber-400 mr-1.5"></i> 得分：<span id="scoreText">0</span> / 10
                     </div>
                 </div>
             </div>
@@ -239,18 +239,15 @@
         </div>
     </main>
 
-    <!-- Game Over Modal (已切換為胖虎抓大雄哭泣的新動畫背景) -->
+    <!-- Game Over Modal (輸的時候：胖虎抓大雄哭泣背景) -->
     <div id="gameOverModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl p-5 sm:p-6 max-w-sm w-full text-center shadow-2xl border-4 sm:border-8 border-rose-500 relative mt-10 sm:mt-12">
-            
             <div class="absolute inset-0 rounded-2xl sm:rounded-[20px] overflow-hidden">
                 <div class="absolute inset-0 opacity-20 bg-[url('./image%20(2).jpg')] bg-cover bg-center"></div>
             </div>
-            
             <div class="absolute -top-12 sm:-top-14 left-1/2 -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-rose-500 bg-white overflow-hidden shadow-lg animate-bounce z-20">
                 <img src="./image_c2c218.png" class="w-full h-full object-cover">
             </div>
-            
             <div class="relative z-10 pt-6 sm:pt-8">
                 <h2 class="text-xl sm:text-2xl font-black text-rose-600 mb-1.5">糟糕！被胖虎抓到了！</h2>
                 <p class="text-xs sm:text-sm font-bold text-slate-600 mb-4">跑得太慢，或者答錯太多次了啦！</p>
@@ -260,6 +257,30 @@
                 <button onclick="startGame()" class="ipad-btn w-full py-2.5 sm:py-3 bg-rose-500 hover:bg-rose-600 text-white font-black rounded-xl sm:rounded-2xl shadow-md text-sm flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-rotate-right"></i>
                     <span>再挑戰一次！</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win Game Modal (贏的時候：大雄成功逃跑背景)[cite: 14] -->
+    <div id="winModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-5 sm:p-6 max-w-sm w-full text-center shadow-2xl border-4 sm:border-8 border-emerald-500 relative mt-10 sm:mt-12">
+            <div class="absolute inset-0 rounded-2xl sm:rounded-[20px] overflow-hidden">
+                <!-- 贏的時候使用 image (3).jpg 當作背景裝飾[cite: 14] -->
+                <div class="absolute inset-0 opacity-25 bg-[url('./image%20(3).jpg')] bg-cover bg-center"></div>
+            </div>
+            <div class="absolute -top-12 sm:-top-14 left-1/2 -translate-x-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-emerald-500 bg-white overflow-hidden shadow-lg animate-bounce z-20">
+                <img src="./image_c2c1fb.png" class="w-full h-full object-cover">
+            </div>
+            <div class="relative z-10 pt-6 sm:pt-8">
+                <h2 class="text-xl sm:text-2xl font-black text-emerald-600 mb-1.5">太棒了！成功甩開胖虎！</h2>
+                <p class="text-xs sm:text-sm font-bold text-slate-600 mb-4">大雄順利抵達安全區，數學太強啦！</p>
+                <div class="bg-white/90 rounded-xl p-3 mb-4 sm:mb-5 border border-slate-200 font-black text-slate-700 shadow-sm">
+                    通關得分： <span id="winScore" class="text-2xl text-emerald-600">10</span> 分
+                </div>
+                <button onclick="startGame()" class="ipad-btn w-full py-2.5 sm:py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-xl sm:rounded-2xl shadow-md text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>再玩一次！</span>
                 </button>
             </div>
         </div>
@@ -346,6 +367,8 @@
         let gadgetTimes = 3;
         let gadgetHints = 3;
 
+        const WIN_SCORE = 10; // 達到 10 分就算贏！
+
         let currentData = { numL: 1, denL: 2, valL: 0.5, numR: 1, denR: 3, valR: 0.33, correctSide: 'left' };
 
         function setLevel(lvl) {
@@ -365,12 +388,12 @@
 
             const talk = document.getElementById('doraTalk');
             switch(lvl) {
-                case 1: talk.innerText = "「同分母，比分子！分子越大分數越大！」"; dropRate = 0.35; break;
-                case 2: talk.innerText = "「同分子，比分母！分母越小分數越大！」"; dropRate = 0.35; break;
-                case 3: talk.innerText = "「找出分母的最小公倍數，通分後再比較！」"; dropRate = 0.40; break;
-                case 4: talk.innerText = "「把它們跟 1/2 (一半) 比較看看，誰大於一半？」"; dropRate = 0.45; break;
-                case 5: talk.innerText = "「試著把它們除開，變成小數來比比看！」"; dropRate = 0.50; break;
-                case 6: talk.innerText = "「胖虎暴走中！靈活運用 5 種方法找出答案！」"; dropRate = 0.65; break;
+                case 1: talk.innerText = "<span>「同分母，比分子！分子越大分數越大！」</span>"; dropRate = 0.35; break;
+                case 2: talk.innerText = "<span>「同分子，比分母！分母越小分數越大！」</span>"; dropRate = 0.35; break;
+                case 3: talk.innerText = "<span>「找出分母的最小公倍數，通分後再比較！」</span>"; dropRate = 0.40; break;
+                case 4: talk.innerText = "<span>「把它們跟 1/2 (一半) 比較看看，誰大於一半？」</span>"; dropRate = 0.45; break;
+                case 5: talk.innerText = "<span>「試著把它們除開，變成小數來比比看！」</span>"; dropRate = 0.50; break;
+                case 6: talk.innerText = "<span>「胖虎暴走中！靈活運用 5 種方法找出答案！」</span>"; dropRate = 0.65; break;
             }
 
             startGame();
@@ -378,6 +401,7 @@
 
         function startGame() {
             document.getElementById('gameOverModal').classList.add('hidden');
+            document.getElementById('winModal').classList.add('hidden');
             score = 0;
             distance = 100;
             gadgetTimes = 3;
@@ -443,6 +467,14 @@
             document.getElementById('gameOverModal').classList.remove('hidden');
             wrongSound.currentTime = 0;
             wrongSound.play().catch(e=>{});
+        }
+
+        function triggerWinGame() {
+            clearInterval(gameLoopTimer);
+            document.getElementById('winScore').innerText = score;
+            document.getElementById('winModal').classList.remove('hidden');
+            correctSound.currentTime = 0;
+            correctSound.play().catch(e=>{});
         }
 
         function nextQuestion() {
@@ -531,7 +563,7 @@
             const cardR = document.getElementById('breadRight');
 
             if (selectedSide === currentData.correctSide) {
-                score += 10;
+                score++;
                 distance = Math.min(100, distance + 18); 
                 updateDashboard();
 
@@ -540,6 +572,14 @@
 
                 correctSound.currentTime = 0;
                 correctSound.play().catch(e=>{});
+
+                // 檢查是否達成勝利條件
+                if (score >= WIN_SCORE) {
+                    setTimeout(() => {
+                        triggerWinGame();
+                    }, 500);
+                    return;
+                }
 
                 setTimeout(() => {
                     isProcessing = false;
@@ -601,7 +641,7 @@
                 hr.innerText = `通分: ${currentData.numR * (l/currentData.denR)}/${l}`;
             } else if (currentQuestionType === 4) {
                 hl.innerText = currentData.valL > 0.5 ? `比 1/2 大` : `比 1/2 小`;
-                hr.innerText = currentData.valR > 0.5 ? `比 1/2 大` : `比 1/2 小`;
+                hl.innerText = currentData.valR > 0.5 ? `比 1/2 大` : `比 1/2 小`;
             } else {
                 hl.innerText = `化小數: ${Number(currentData.valL.toFixed(3))}`;
                 hr.innerText = `化小數: ${Number(currentData.valR.toFixed(3))}`;
