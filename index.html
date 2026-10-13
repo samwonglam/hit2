@@ -247,7 +247,7 @@
         </div>
     </div>
 
-    <!-- Knowledge Base Modal -->
+    <!-- Knowledge Base Modal (已擴充 5 種比較方法) -->
     <div id="knowledgeModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl max-w-lg w-full p-5 shadow-2xl border-4 border-[#FFDF00] relative max-h-[85vh] flex flex-col">
             <div class="flex items-center justify-between pb-2 border-b border-slate-100 flex-shrink-0">
@@ -255,47 +255,77 @@
                     <img src="./image_c2c236.png" class="w-10 h-10 rounded-full border border-slate-200 object-cover bg-sky-50 shrink-0">
                     <div>
                         <h3 class="text-base font-black text-slate-800">出木杉的數學教室</h3>
-                        <p class="text-xs font-bold text-amber-600">如何快速比較分數大小？</p>
+                        <p class="text-xs font-bold text-amber-600">5招快速比較分數大小！</p>
                     </div>
                 </div>
                 <button onclick="closeKnowledgeModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold">✕</button>
             </div>
 
             <div class="overflow-y-auto py-3 space-y-3 text-xs flex-1">
+                
+                <!-- 1. 同分母比較法 -->
                 <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200">
-                    <h4 class="font-black text-sky-900 mb-1">1. 分母相同時 (切的等份一樣多)</h4>
-                    <p class="text-slate-700 mb-2">分母一樣，代表每一塊的大小相同。這時候只要看上面的「分子」，<span class="font-bold text-rose-500">分子越大，分數就越大！</span></p>
+                    <h4 class="font-black text-sky-900 mb-1">1. 同分母比較法</h4>
+                    <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>當兩個分數的「分母相同」時，分子越大，分數就越大。</p>
+                    <p class="text-slate-700 mb-2 text-[11px]"><span class="font-bold">原理：</span>切成的總份數一樣，拿的份數越多，數值越大。</p>
                     <div class="text-center font-black text-sm bg-white p-2 rounded-xl border border-sky-100">
-                        3/5 <span class="text-rose-500">></span> 1/5
+                        5/8 <span class="text-rose-500">></span> 3/8
                     </div>
                 </div>
 
+                <!-- 2. 同分子比較法 -->
                 <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200">
-                    <h4 class="font-black text-amber-900 mb-1">2. 分子相同時 (拿的塊數一樣多)</h4>
-                    <p class="text-slate-700 mb-2">分子一樣，代表你拿的塊數相同。這時要看下面的「分母」，切越多份(分母大)每一塊就越小。<span class="font-bold text-rose-500">分母越小，分數反而越大！</span></p>
+                    <h4 class="font-black text-amber-900 mb-1">2. 同分子比較法</h4>
+                    <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>當兩個分數的「分子相同」時，分母越大，分數反而越小。</p>
+                    <p class="text-slate-700 mb-2 text-[11px]"><span class="font-bold">原理：</span>拿的份數一樣多，但分的份數越多，每一份就越小。</p>
                     <div class="text-center font-black text-sm bg-white p-2 rounded-xl border border-amber-100">
-                        2/3 <span class="text-rose-500">></span> 2/5
+                        3/4 <span class="text-rose-500">></span> 3/7
                     </div>
                 </div>
 
+                <!-- 3. 通分法 -->
                 <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
-                    <h4 class="font-black text-emerald-900 mb-1">3. 分子分母都不一樣 (異分母)</h4>
-                    <p class="text-slate-700 mb-2">必須先「通分」，找分母的公倍數，把分母變一樣後，再比較分子！或者使用「交叉相乘法」快速判斷。</p>
-                    <div class="bg-white p-2 rounded-xl border border-emerald-100 font-bold text-slate-700">
-                        比較 1/2 和 3/8：<br>
-                        1/2 擴分為 <span class="text-emerald-600">4/8</span>。<br>
-                        因為 4/8 > 3/8，所以 1/2 > 3/8！
+                    <h4 class="font-black text-emerald-900 mb-1">3. 通分法（最基本、最通用）</h4>
+                    <p class="text-slate-700 mb-2 text-[11px]"><span class="font-bold">規則：</span>當分子和分母都不相同時，先找出分母的「最小公倍數」化成同分母，再比較分子。</p>
+                    <div class="bg-white p-2 rounded-xl border border-emerald-100 font-bold text-slate-700 text-[11px]">
+                        比較 2/3 和 3/4：將分母通分為 12。<br>
+                        2/3 = <span class="text-emerald-600">8/12</span>，3/4 = <span class="text-emerald-600">9/12</span>。<br>
+                        因為 9/12 > 8/12，所以 3/4 > 2/3！
                     </div>
                 </div>
+
+                <!-- 4. 基準數法 -->
+                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200">
+                    <h4 class="font-black text-purple-900 mb-1">4. 基準數法（比一半法 / 捷徑速算）</h4>
+                    <p class="text-slate-700 mb-2 text-[11px]"><span class="font-bold">規則：</span>利用 1 或 1/2（一半）作為基準，判斷分數是比一半大還是比一半小。</p>
+                    <div class="bg-white p-2 rounded-xl border border-purple-100 font-bold text-slate-700 text-[11px]">
+                        比較 4/9 和 6/11：<br>
+                        4/9 的一半是 4.5/9（比一半小）。<br>
+                        6/11 的一半是 5.5/11（比一半大）。<br>
+                        因此 <span class="text-purple-600">6/11 > 4/9</span>。
+                    </div>
+                </div>
+
+                <!-- 5. 化為小數法 -->
+                <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200">
+                    <h4 class="font-black text-rose-900 mb-1">5. 化為小數法</h4>
+                    <p class="text-slate-700 mb-2 text-[11px]"><span class="font-bold">規則：</span>把分數用「分子 ÷ 分母」除成小數，直接比較小數的大小（適合考試或數字較繁複的題目）。</p>
+                    <div class="bg-white p-2 rounded-xl border border-rose-100 font-bold text-slate-700 text-[11px]">
+                        比較 3/4 和 7/10：<br>
+                        3/4 = <span class="text-rose-600">0.75</span>，7/10 = <span class="text-rose-600">0.7</span>。<br>
+                        因為 0.75 > 0.7，所以 3/4 > 7/10。
+                    </div>
+                </div>
+
             </div>
 
-            <button onclick="closeKnowledgeModal()" class="w-full mt-2 py-2.5 bg-slate-800 text-white font-bold rounded-xl text-sm flex-shrink-0">
+            <button onclick="closeKnowledgeModal()" class="w-full mt-3 py-2.5 bg-slate-800 text-white font-bold rounded-xl text-sm flex-shrink-0">
                 明白了，繼續逃跑！
             </button>
         </div>
     </div>
 
-    <!-- Audio Elements -->
+    <!-- Audio Elements & Logic -->
     <script>
         // 音效檔案
         const wrongSound = new Audio('./wrong_sound.mp3'); 
@@ -342,7 +372,7 @@
 
         // 遊戲主迴圈
         function gameTick() {
-            if (isProcessing) return; // 答題動畫期間暫停移動
+            if (isProcessing) return;
 
             distance -= dropRate;
             
@@ -362,11 +392,6 @@
             const safeBar = document.getElementById('safeBar');
             const dangerLevel = document.getElementById('dangerLevel');
 
-            // 視覺更新：大雄在最右邊 (右邊保留10%空間)
-            // 胖虎的位置從 left: 0% 到 left: 80%
-            // 當 distance = 100, gian_left = 0%
-            // 當 distance = 0, gian_left = 80% (抓到)
-            
             let gianPos = 80 - (distance * 0.8);
             gian.style.left = `${gianPos}%`;
             
@@ -403,7 +428,6 @@
             let type = Math.random();
 
             if (difficulty === 'easy') {
-                // 基礎：同分母 或 同分子
                 if (type > 0.5) {
                     // 同分母
                     d1 = d2 = getRandomInt(3, 10);
@@ -418,9 +442,8 @@
                     while(d1 === d2) d2 = getRandomInt(n1 + 1, 10);
                 }
             } else {
-                // 挑戰：異分母
                 if (type > 0.4) {
-                    // 倍數分母 (例如 1/2 vs 3/4)
+                    // 倍數分母
                     d1 = getRandomInt(2, 5);
                     d2 = d1 * getRandomInt(2, 3);
                     n1 = getRandomInt(1, d1 - 1);
@@ -437,7 +460,6 @@
                     n2 = getRandomInt(1, d2);
                 }
                 
-                // 防止數值剛好相等
                 while((n1/d1) === (n2/d2)) {
                     n2 = getRandomInt(1, d2);
                 }
@@ -473,7 +495,7 @@
             if (selectedSide === currentData.correctSide) {
                 // 答對！
                 score++;
-                distance = Math.min(100, distance + 18); // 拉開距離
+                distance = Math.min(100, distance + 18); 
                 updateDashboard();
 
                 if (selectedSide === 'left') cardL.classList.add('correct');
@@ -489,13 +511,12 @@
 
             } else {
                 // 答錯！
-                distance -= 20; // 受到嚴重懲罰，胖虎逼近
+                distance -= 20; 
                 if(distance < 0) distance = 0;
 
                 if (selectedSide === 'left') cardL.classList.add('wrong');
                 else cardR.classList.add('wrong');
 
-                // 顯示正確的那個給他看
                 if (currentData.correctSide === 'left') cardL.classList.add('correct');
                 else cardR.classList.add('correct');
 
@@ -517,7 +538,6 @@
             cardR.className = 'bread-card flex-1 max-w-[220px] flex flex-col items-center justify-center outline-none';
         }
 
-        // 神奇道具：竹蜻蜓 (加時間/距離)
         function useGadgetTime() {
             if (gadgetTimes <= 0 || isProcessing || distance <= 0) return;
             gadgetTimes--;
@@ -525,21 +545,17 @@
             updateChaseUI();
             updateGadgetUI();
             
-            // 播放答對音效做為道具音效替代
             correctSound.currentTime = 0;
             correctSound.play().catch(e=>{});
         }
 
-        // 神奇道具：透視放大鏡 (通分提示)
         function useGadgetHint() {
             if (gadgetHints <= 0 || isProcessing || distance <= 0) return;
             
-            // 如果已經是同分母或同分子，不需要通分，直接給對錯提示太簡單，這裡選擇通分顯示。
             gadgetHints--;
             updateGadgetUI();
 
             let lcm = (currentData.denL * currentData.denR) / gcd(currentData.denL, currentData.denR);
-            
             let newNumL = currentData.numL * (lcm / currentData.denL);
             let newNumR = currentData.numR * (lcm / currentData.denR);
 
@@ -599,7 +615,6 @@
             document.getElementById('knowledgeModal').classList.add('hidden');
         }
 
-        // 初始化
         window.onload = () => {
             setDifficulty('easy');
         };
