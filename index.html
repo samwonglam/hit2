@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>哆啦A夢：3D 分數大小追逐戰</title>
+    <title>哆啦A夢：3D 分數大小追逐戰 (教學升級版)</title>
     
     <!-- Tailwind CSS & Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,16 +50,15 @@
             background: linear-gradient(180deg, #FFFDF5 0%, #FDF0D0 100%);
             border: 5px solid var(--dora-bread-crust);
             border-radius: 24px;
-            /* 創造 3D 麵包厚度與立體陰影 */
             box-shadow: 
                 0 10px 0 var(--dora-bread-dark),
-                0 15px 20px rgba(0,0,0,0.25),
+                0 15px 20px rgba(0,0,0,0.22),
                 inset 0 0 15px rgba(184, 115, 51, 0.25);
             transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s, border-color 0.2s, background 0.2s;
             cursor: pointer;
             position: relative;
             transform-style: preserve-3d;
-            transform: translateY(0) rotateX(8deg);
+            transform: translateY(0) rotateX(6deg);
             width: 100%;
         }
 
@@ -67,11 +66,10 @@
             .bread-card-3d { 
                 border-width: 6px; 
                 border-radius: 28px; 
-                box-shadow: 0 14px 0 var(--dora-bread-dark), 0 20px 25px rgba(0,0,0,0.25), inset 0 0 20px rgba(184, 115, 51, 0.25);
+                box-shadow: 0 12px 0 var(--dora-bread-dark), 0 18px 25px rgba(0,0,0,0.22), inset 0 0 20px rgba(184, 115, 51, 0.25);
             }
         }
 
-        /* 點擊時的 3D 壓下效果 */
         .bread-card-3d:active {
             transform: translateY(8px) rotateX(2deg) scale(0.98);
             box-shadow: 
@@ -80,7 +78,6 @@
                 inset 0 0 15px rgba(184, 115, 51, 0.35);
         }
 
-        /* 答對時的 3D 發光與彈跳效果 */
         .bread-card-3d.correct {
             border-color: #10b981;
             background: linear-gradient(180deg, #ecfdf5 0%, #d1fae5 100%);
@@ -90,7 +87,6 @@
             animation: cardWinJump 0.5s ease-out;
         }
 
-        /* 答錯時的 3D 搖晃效果 */
         .bread-card-3d.wrong {
             border-color: #ef4444;
             background: linear-gradient(180deg, #fef2f2 0%, #fee2e2 100%);
@@ -100,28 +96,26 @@
             animation: shake3D 0.4s ease-in-out;
         }
 
-        /* 出題時的 3D 翻轉入場動畫 */
         .flip-in {
-            animation: flipIn3D 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: flipIn3D 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         @keyframes flipIn3D {
-            0% { transform: rotateY(-90deg) rotateX(15deg) scale(0.8); opacity: 0; }
-            100% { transform: rotateY(0deg) rotateX(8deg) scale(1); opacity: 1; }
+            0% { transform: rotateY(-90deg) rotateX(12deg) scale(0.85); opacity: 0; }
+            100% { transform: rotateY(0deg) rotateX(6deg) scale(1); opacity: 1; }
         }
 
         @keyframes cardWinJump {
-            0%, 100% { transform: translateY(0) rotateX(8deg) scale(1); }
-            50% { transform: translateY(-16px) rotateX(15deg) scale(1.06); }
+            0%, 100% { transform: translateY(0) rotateX(6deg) scale(1); }
+            50% { transform: translateY(-14px) rotateX(12deg) scale(1.05); }
         }
 
         @keyframes shake3D {
-            0%, 100% { transform: translateX(0) rotateX(8deg); }
-            20%, 60% { transform: translateX(-10px) rotateZ(-4deg) rotateX(8deg); }
-            40%, 80% { transform: translateX(10px) rotateZ(4deg) rotateX(8deg); }
+            0%, 100% { transform: translateX(0) rotateX(6deg); }
+            20%, 60% { transform: translateX(-10px) rotateZ(-3deg) rotateX(6deg); }
+            40%, 80% { transform: translateX(10px) rotateZ(3deg) rotateX(6deg); }
         }
 
-        /* 畫面整體震動 (答錯懲罰) */
         .screen-shake {
             animation: screenShakeAnim 0.4s cubic-bezier(.36,.07,.19,.97) both;
         }
@@ -132,7 +126,6 @@
             40%, 60% { transform: translate3d(8px, 4px, 0); }
         }
 
-        /* 烤吐司立體字體 */
         .toasted-text {
             color: #7A3B00;
             text-shadow: 0px 2px 0px rgba(255,255,255,0.9), 0px -1px 0px rgba(0,0,0,0.2);
@@ -160,7 +153,6 @@
             .fraction .denominator { padding-top: 4px; }
         }
 
-        /* 3D 道具按鈕 */
         .btn-3d {
             transition: all 0.1s;
             box-shadow: 0 5px 0 rgba(0,0,0,0.2), 0 6px 10px rgba(0,0,0,0.15);
@@ -171,7 +163,6 @@
             box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* 關卡選擇 3D 按鈕 */
         .lvl-btn-active {
             background: #00A0E9;
             color: white;
@@ -191,7 +182,6 @@
             transform: translateY(-2px);
         }
 
-        /* 跑步動態特效 */
         @keyframes running-bob {
             0% { transform: translateY(0px) scale(1.03); }
             50% { transform: translateY(-4px) scale(1.03); }
@@ -200,7 +190,6 @@
         .running-anim { animation: running-bob 0.35s infinite ease-in-out; }
         .running-anim-fast { animation: running-bob 0.18s infinite ease-in-out; }
 
-        /* 透明網格背景 */
         .checker-bg {
             background-color: #f8f9fa;
             background-image: 
@@ -211,7 +200,6 @@
         }
         #gianRunner { transition: left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
-        /* 飄字動畫 (+1, Combo) */
         @keyframes floatUpFade {
             0% { transform: translateY(0) scale(0.8); opacity: 1; }
             50% { transform: translateY(-25px) scale(1.2); opacity: 1; }
@@ -232,153 +220,209 @@
 
     <!-- Header -->
     <header class="bg-gradient-to-r from-[#00A0E9] to-[#0080C6] text-white shadow-lg sticky top-0 z-30 border-b-4 border-[#E60012] flex-shrink-0">
-        <div class="max-w-6xl mx-auto px-3 py-2 sm:px-4 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-3 py-1.5 sm:px-4 flex items-center justify-between">
             <div class="flex items-center space-x-2 sm:space-x-3">
-                <div class="relative w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full border-2 border-[#FFDF00] flex items-center justify-center shadow-md overflow-hidden shrink-0 transform hover:rotate-12 transition-transform">
+                <div class="relative w-9 h-9 sm:w-11 sm:h-11 bg-white rounded-full border-2 border-[#FFDF00] flex items-center justify-center shadow-md overflow-hidden shrink-0">
                     <img src="./image_c2c1a3.png" alt="Doraemon" class="w-full h-full object-cover scale-110">
                 </div>
                 <div class="min-w-0">
-                    <h1 class="text-base sm:text-xl font-black tracking-wider text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] truncate">哆啦A夢：3D 分數追逐戰</h1>
+                    <h1 class="text-sm sm:text-xl font-black tracking-wider text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] truncate">哆啦A夢：3D 分數追逐戰</h1>
                 </div>
             </div>
-            <button onclick="openKnowledgeModal()" class="btn-3d px-3 py-1.5 sm:px-4 sm:py-2 bg-[#FFDF00] hover:bg-amber-300 text-slate-900 font-black text-xs sm:text-sm rounded-2xl flex items-center space-x-1.5 border-2 border-white shrink-0">
-                <i class="fa-solid fa-graduation-cap text-rose-600 text-sm sm:text-base"></i>
-                <span>出木杉秘訣</span>
-            </button>
+            <div class="flex items-center space-x-2">
+                <button onclick="openKnowledgeModal()" class="btn-3d px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 bg-[#FFDF00] hover:bg-amber-300 text-slate-900 font-black text-xs sm:text-sm rounded-xl flex items-center space-x-1 border-2 border-white shrink-0">
+                    <i class="fa-solid fa-graduation-cap text-rose-600"></i>
+                    <span>出木杉秘訣</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Main Game Area -->
-    <main class="max-w-5xl mx-auto px-2.5 sm:px-4 py-2 flex-1 flex flex-col w-full overflow-y-auto overflow-x-hidden">
+    <main class="max-w-5xl mx-auto px-2.5 sm:px-4 py-1.5 flex-1 flex flex-col w-full overflow-y-auto overflow-x-hidden">
         
-        <!-- 關卡選擇區 (3D 按鈕化) -->
-        <div class="w-full bg-white/80 backdrop-blur rounded-2xl p-1.5 shadow-md border-2 border-white mb-2.5 shrink-0">
-            <div class="flex overflow-x-auto space-x-2 hide-scrollbar snap-x p-1 pr-4">
-                <button id="lvl1" onclick="setLevel(1)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active">1.同分母</button>
-                <button id="lvl2" onclick="setLevel(2)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">2.同分子</button>
-                <button id="lvl3" onclick="setLevel(3)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">3.通分法</button>
-                <button id="lvl4" onclick="setLevel(4)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">4.基準數</button>
-                <button id="lvl5" onclick="setLevel(5)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">5.化小數</button>
-                <button id="lvl6" onclick="setLevel(6)" class="snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200">🔥 綜合挑戰</button>
+        <!-- 關卡選擇區 -->
+        <div class="w-full bg-white/80 backdrop-blur rounded-2xl p-1 shadow-md border-2 border-white mb-2 shrink-0">
+            <div class="flex overflow-x-auto space-x-1.5 hide-scrollbar snap-x p-1 pr-4">
+                <button id="lvl1" onclick="setLevel(1)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active">1.同分母</button>
+                <button id="lvl2" onclick="setLevel(2)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">2.同分子</button>
+                <button id="lvl3" onclick="setLevel(3)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">3.通分法</button>
+                <button id="lvl4" onclick="setLevel(4)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">4.基準數</button>
+                <button id="lvl5" onclick="setLevel(5)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">5.化小數</button>
+                <button id="lvl6" onclick="setLevel(6)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200">🔥 綜合挑戰</button>
             </div>
         </div>
 
         <!-- 追逐實況區塊 -->
-        <div class="w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.12)] border-4 border-white mb-2.5 relative flex-shrink-0 flex flex-col">
-            <!-- 動畫視窗 -->
-            <div class="w-full h-[150px] sm:h-[220px] md:h-[250px] relative bg-[#e3e7eb] overflow-hidden">
+        <div class="w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_6px_16px_rgba(0,0,0,0.1)] border-4 border-white mb-2 relative flex-shrink-0 flex flex-col">
+            <div class="w-full h-[135px] sm:h-[200px] md:h-[230px] relative bg-[#e3e7eb] overflow-hidden">
                 <img id="chaseImage" src="./image.jpg" class="w-full h-full object-cover object-center running-anim">
                 <div id="dangerOverlay" class="absolute inset-0 bg-rose-600/0 transition-colors duration-200 pointer-events-none"></div>
                 
                 <!-- 狀態標籤：距離危機 -->
-                <div class="absolute top-2.5 left-3 z-10">
-                    <div class="text-[11px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-3 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1">
+                <div class="absolute top-2 left-2.5 z-10">
+                    <div class="text-[10px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1">
                         <i class="fa-solid fa-bolt text-amber-500"></i>
                         <span>危機：<span id="dangerLevel">安全</span></span>
                     </div>
                 </div>
 
                 <!-- 連擊 COMBO 徽章 -->
-                <div id="comboBadge" class="hidden absolute top-2.5 left-1/2 -translate-x-1/2 z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white font-black text-xs sm:text-sm px-3.5 py-1 rounded-full shadow-lg border-2 border-white animate-bounce">
+                <div id="comboBadge" class="hidden absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white font-black text-xs sm:text-sm px-3 py-0.5 rounded-full shadow-lg border-2 border-white animate-bounce">
                     🔥 COMBO x<span id="comboText">2</span>
                 </div>
 
                 <!-- 狀態標籤：過關目標進度 -->
-                <div class="absolute top-2.5 right-3 z-10">
-                    <div class="text-[11px] sm:text-xs font-black text-sky-900 bg-white/95 backdrop-blur px-3 py-1 rounded-full shadow-md border border-slate-100 flex items-center">
-                        <i class="fa-solid fa-flag-checkered text-rose-500 mr-1.5"></i> 逃脫進度：<span id="scoreText" class="text-[#00A0E9] text-sm sm:text-base mx-0.5">0</span> / 10
+                <div class="absolute top-2 right-2.5 z-10">
+                    <div class="text-[10px] sm:text-xs font-black text-sky-900 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center">
+                        <i class="fa-solid fa-flag-checkered text-rose-500 mr-1"></i> 進度：<span id="scoreText" class="text-[#00A0E9] text-xs sm:text-sm mx-0.5">0</span> / 10
                     </div>
                 </div>
             </div>
 
             <!-- 下方距離進度條 -->
-            <div class="w-full h-11 sm:h-13 checker-bg relative flex-shrink-0 border-t-2 border-slate-200">
+            <div class="w-full h-10 sm:h-12 checker-bg relative flex-shrink-0 border-t-2 border-slate-200">
                 <div id="safeBar" class="h-full bg-gradient-to-r from-[#ff6b6b] via-[#feca57] to-[#1dd1a1] transition-all duration-200 shadow-inner" style="width: 100%;"></div>
                 
                 <!-- 胖虎追逐頭像 -->
-                <div id="gianRunner" class="absolute top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 z-20" style="left: 0%;">
-                    <img src="./image_c2c218.png" class="w-full h-full object-cover rounded-full border-[3px] border-rose-600 bg-white shadow-lg transform hover:scale-110">
+                <div id="gianRunner" class="absolute top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 z-20" style="left: 0%;">
+                    <img src="./image_c2c218.png" class="w-full h-full object-cover rounded-full border-[3px] border-rose-600 bg-white shadow-lg">
                 </div>
                 <!-- 大雄終點頭像 -->
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 z-20 transform -translate-x-1 sm:-translate-x-2">
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 z-20 transform -translate-x-1 sm:-translate-x-2">
                     <img src="./image_c2c1fb.png" class="w-full h-full object-cover rounded-full border-[3px] border-[#00A0E9] bg-white shadow-lg">
                 </div>
             </div>
         </div>
 
         <!-- 哆啦A夢膠囊提示框 -->
-        <div class="w-full flex justify-center mb-3 px-1">
-            <div class="bg-gradient-to-r from-[#00A0E9] to-[#0284c7] text-white text-[11px] sm:text-sm font-black py-1.5 sm:py-2 px-4 sm:px-6 rounded-full shadow-[0_4px_10px_rgba(0,160,233,0.3)] border-2 border-white flex items-center shrink-0 max-w-full">
-                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white flex items-center justify-center mr-2 shrink-0 overflow-hidden shadow-inner">
+        <div class="w-full flex justify-center mb-2 px-1">
+            <div class="bg-gradient-to-r from-[#00A0E9] to-[#0284c7] text-white text-[11px] sm:text-sm font-black py-1 sm:py-1.5 px-4 sm:px-5 rounded-full shadow-md border-2 border-white flex items-center shrink-0 max-w-full">
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white flex items-center justify-center mr-2 shrink-0 overflow-hidden shadow-inner">
                     <img src="./image_c2c1a3.png" class="w-full h-full object-cover scale-110"> 
                 </div>
                 <span id="doraTalk" class="tracking-wide truncate">「同分母，比分子！分子越大分數越大！」</span>
             </div>
         </div>
 
-        <!-- 3D 記憶麵包對決區 -->
-        <div class="scene-3d flex-1 flex items-stretch justify-center space-x-3 sm:space-x-8 pb-4 pt-1 w-full px-2">
+        <!-- 3D 記憶麵包對決區 (內建動態視覺化分數長條圖) -->
+        <div class="scene-3d flex-1 flex items-stretch justify-center space-x-2.5 sm:space-x-6 pb-3 pt-1 w-full px-1">
             <!-- 左邊麵包 -->
-            <div class="flex-1 max-w-[240px] flex relative">
-                <button id="breadLeft" onclick="checkAnswer('left', event)" class="bread-card-3d flex flex-col items-center justify-center outline-none">
-                    <div class="w-3 h-3 rounded-full bg-amber-900/10 absolute top-3 left-3"></div>
-                    <div class="w-2 h-2 rounded-full bg-amber-900/10 absolute top-6 right-4"></div>
-                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/60 absolute top-2.5 sm:top-3.5 bg-amber-100/80 px-2.5 py-0.5 rounded-full">左邊麵包</div>
+            <div class="flex-1 max-w-[250px] flex relative">
+                <button id="breadLeft" onclick="checkAnswer('left', event)" class="bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none">
+                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">左邊麵包</div>
                     
-                    <div id="fracLeft" class="fraction toasted-text font-black text-4xl sm:text-6xl md:text-7xl mt-2">
+                    <div id="fracLeft" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
                         <span class="numerator" id="numL">1</span>
                         <span class="denominator" id="denL">2</span>
                     </div>
                     
-                    <div id="hintLeft" class="hidden absolute bottom-2.5 sm:bottom-3.5 text-[10px] sm:text-xs font-black text-white bg-rose-500 px-3 py-0.5 rounded-full shadow-sm w-10/12 truncate"></div>
+                    <!-- 視覺化分數圖與文字提示區 -->
+                    <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[36px] justify-end">
+                        <div id="visualLeft" class="hidden w-full bg-amber-950/10 h-3 sm:h-4 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
+                        <div id="hintLeft" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2.5 py-0.5 rounded-full shadow-sm w-full truncate"></div>
+                    </div>
                 </button>
             </div>
             
             <!-- VS 標誌 -->
             <div class="flex flex-col items-center justify-center shrink-0">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 text-white font-black text-base sm:text-xl flex items-center justify-center shadow-lg border-2 border-white transform rotate-12">
+                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 text-white font-black text-sm sm:text-lg flex items-center justify-center shadow-lg border-2 border-white transform rotate-12">
                     <span class="-rotate-12">VS</span>
                 </div>
             </div>
 
             <!-- 右邊麵包 -->
-            <div class="flex-1 max-w-[240px] flex relative">
-                <button id="breadRight" onclick="checkAnswer('right', event)" class="bread-card-3d flex flex-col items-center justify-center outline-none">
-                    <div class="w-2.5 h-2.5 rounded-full bg-amber-900/10 absolute top-4 left-4"></div>
-                    <div class="w-3 h-3 rounded-full bg-amber-900/10 absolute top-3 right-3"></div>
-                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/60 absolute top-2.5 sm:top-3.5 bg-amber-100/80 px-2.5 py-0.5 rounded-full">右邊麵包</div>
+            <div class="flex-1 max-w-[250px] flex relative">
+                <button id="breadRight" onclick="checkAnswer('right', event)" class="bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none">
+                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">右邊麵包</div>
                     
-                    <div id="fracRight" class="fraction toasted-text font-black text-4xl sm:text-6xl md:text-7xl mt-2">
+                    <div id="fracRight" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
                         <span class="numerator" id="numR">3</span>
                         <span class="denominator" id="denR">4</span>
                     </div>
                     
-                    <div id="hintRight" class="hidden absolute bottom-2.5 sm:bottom-3.5 text-[10px] sm:text-xs font-black text-white bg-rose-500 px-3 py-0.5 rounded-full shadow-sm w-10/12 truncate"></div>
+                    <!-- 視覺化分數圖與文字提示區 -->
+                    <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[36px] justify-end">
+                        <div id="visualRight" class="hidden w-full bg-amber-950/10 h-3 sm:h-4 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
+                        <div id="hintRight" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2.5 py-0.5 rounded-full shadow-sm w-full truncate"></div>
+                    </div>
                 </button>
             </div>
         </div>
 
-        <!-- 四次元道具欄 (3D 立體按鈕) -->
-        <div class="w-full bg-white/90 backdrop-blur rounded-2xl p-2 shadow-lg border-2 border-white grid grid-cols-2 gap-2.5 shrink-0 mb-1">
-            <button id="gadgetTimeBtn" onclick="useGadgetTime()" class="btn-3d bg-gradient-to-b from-sky-400 to-sky-500 hover:from-sky-300 hover:to-sky-400 text-white rounded-xl py-2.5 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-2 border border-sky-300">
-                <span class="text-base sm:text-lg drop-shadow">🚁</span>
-                <span class="drop-shadow-sm">竹蜻蜓加速</span>
+        <!-- 四次元道具欄 -->
+        <div class="w-full bg-white/90 backdrop-blur rounded-2xl p-1.5 sm:p-2 shadow-lg border-2 border-white grid grid-cols-2 gap-2 shrink-0 mb-1">
+            <button id="gadgetTimeBtn" onclick="useGadgetTime()" class="btn-3d bg-gradient-to-b from-sky-400 to-sky-500 hover:from-sky-300 hover:to-sky-400 text-white rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-sky-300">
+                <span class="text-base sm:text-lg">🚁</span>
+                <span>竹蜻蜓加速</span>
                 <span id="timeGadgetCount" class="bg-white text-sky-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner">3</span>
             </button>
-            <button id="gadgetHintBtn" onclick="useGadgetHint()" class="btn-3d bg-gradient-to-b from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 rounded-xl py-2.5 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-2 border border-amber-300">
-                <span class="text-base sm:text-lg drop-shadow">🔍</span>
-                <span>透視放大鏡</span>
+            <button id="gadgetHintBtn" onclick="useGadgetHint()" class="btn-3d bg-gradient-to-b from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-amber-300">
+                <span class="text-base sm:text-lg">🔍</span>
+                <span>透視圖解</span>
                 <span id="hintGadgetCount" class="bg-white text-amber-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner">3</span>
             </button>
         </div>
     </main>
 
-    <!-- Game Over Modal (輸的時候：清晰展示胖虎抓大雄圖片) -->
-    <div id="gameOverModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl p-4 sm:p-5 max-w-sm w-full text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-rose-500 relative animate-[flipIn3D_0.3s_ease-out]">
+    <!-- 🎁 第6關專屬：「方法識別」策略加分 Modal -->
+    <div id="strategyModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-5 max-w-md w-full text-center shadow-2xl border-4 border-[#FFDF00] relative animate-[flipIn3D_0.3s_ease-out]">
+            <div class="flex items-center justify-center space-x-2 mb-2">
+                <img src="./image_c2c236.png" class="w-10 h-10 rounded-full border-2 border-[#00A0E9] bg-sky-50 object-cover">
+                <div class="text-left">
+                    <span class="text-[10px] bg-amber-100 text-amber-800 font-black px-2 py-0.5 rounded-full">時間暫停．策略加分題</span>
+                    <h3 class="text-base sm:text-lg font-black text-slate-800">出木杉的解題策略考驗！</h3>
+                </div>
+            </div>
             
-            <!-- 清晰展示 image (2).jpg -->
-            <div class="w-full h-40 sm:h-48 rounded-2xl overflow-hidden mb-3 border-2 border-rose-200 shadow-inner relative bg-slate-100">
+            <p class="text-xs font-bold text-slate-600 mb-2">請問比較下面這組分數，用哪種方法最快？<br><span class="text-rose-500">（答對獎勵：🚁 竹蜻蜓 +1 ＆ 距離大增！）</span></p>
+
+            <!-- 題目預覽 -->
+            <div class="bg-amber-50 rounded-2xl p-3 mb-3 border-2 border-amber-200 flex items-center justify-around">
+                <div class="fraction toasted-text font-black text-3xl">
+                    <span class="numerator" id="stratNumL">4</span>
+                    <span class="denominator" id="stratDenL">9</span>
+                </div>
+                <span class="font-black text-xl text-amber-500">VS</span>
+                <div class="fraction toasted-text font-black text-3xl">
+                    <span class="numerator" id="stratNumR">6</span>
+                    <span class="denominator" id="stratDenR">11</span>
+                </div>
+            </div>
+
+            <!-- 5種方法選項 -->
+            <div class="grid grid-cols-1 gap-2 text-xs sm:text-sm font-black mb-2">
+                <button onclick="checkStrategyAnswer(1)" class="btn-3d py-2 px-3 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-900 border border-sky-200 flex justify-between items-center">
+                    <span>1. 同分母比較法（直接比分子）</span>
+                    <i class="fa-solid fa-chevron-right text-sky-400"></i>
+                </button>
+                <button onclick="checkStrategyAnswer(2)" class="btn-3d py-2 px-3 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 flex justify-between items-center">
+                    <span>2. 同分子比較法（直接比分母）</span>
+                    <i class="fa-solid fa-chevron-right text-amber-400"></i>
+                </button>
+                <button onclick="checkStrategyAnswer(3)" class="btn-3d py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 flex justify-between items-center">
+                    <span>3. 通分法（找最小公倍數）</span>
+                    <i class="fa-solid fa-chevron-right text-emerald-400"></i>
+                </button>
+                <button onclick="checkStrategyAnswer(4)" class="btn-3d py-2 px-3 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-900 border border-purple-200 flex justify-between items-center">
+                    <span>4. 基準數法（跟 1/2 一半比大小）</span>
+                    <i class="fa-solid fa-chevron-right text-purple-400"></i>
+                </button>
+                <button onclick="checkStrategyAnswer(5)" class="btn-3d py-2 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-900 border border-rose-200 flex justify-between items-center">
+                    <span>5. 化為小數法（分子 ÷ 分母）</span>
+                    <i class="fa-solid fa-chevron-right text-rose-400"></i>
+                </button>
+            </div>
+            <div id="stratFeedback" class="hidden text-xs font-black py-1.5 rounded-lg mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal (輸的時候) -->
+    <div id="gameOverModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-4 sm:p-5 max-w-sm w-full text-center shadow-2xl border-4 border-rose-500 relative animate-[flipIn3D_0.3s_ease-out]">
+            <div class="w-full h-36 sm:h-44 rounded-2xl overflow-hidden mb-3 border-2 border-rose-200 shadow-inner relative bg-slate-100">
                 <img src="./image (2).jpg" class="w-full h-full object-cover">
                 <div class="absolute bottom-2 right-2 bg-rose-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">
                     慘遭毒手 💥
@@ -386,25 +430,29 @@
             </div>
             
             <h2 class="text-xl sm:text-2xl font-black text-rose-600 mb-1">糟糕！被胖虎抓到了！</h2>
-            <p class="text-xs sm:text-sm font-bold text-slate-500 mb-3">大雄跑得太慢，或者答錯太多次了啦！</p>
+            <p class="text-xs font-bold text-slate-500 mb-3">別氣餒，看看錯題解析就能反敗為勝！</p>
             
-            <div class="bg-rose-50 rounded-2xl p-2.5 mb-4 border border-rose-200 font-black text-slate-700">
-                逃脫進度： <span id="finalScore" class="text-xl sm:text-2xl text-rose-600">0</span> / 10 題
+            <div class="bg-rose-50 rounded-2xl p-2.5 mb-3 border border-rose-200 font-black text-slate-700 text-sm">
+                逃脫進度： <span id="finalScore" class="text-xl text-rose-600">0</span> / 10 題
             </div>
             
-            <button onclick="startGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-rose-500 to-rose-600 text-white font-black rounded-2xl text-sm sm:text-base flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-rotate-right"></i>
-                <span>再挑戰一次！幫大雄逃跑！</span>
-            </button>
+            <div class="space-y-2">
+                <button id="btnReviewLose" onclick="openMistakeModal()" class="hidden btn-3d w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-amber-500">
+                    <i class="fa-solid fa-book-open text-rose-600"></i>
+                    <span>📖 查看本次錯題與圖解 (<span id="mistakeCountLose">0</span>)</span>
+                </button>
+                <button onclick="startGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-rose-500 to-rose-600 text-white font-black rounded-xl text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>再挑戰一次！</span>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Win Game Modal (贏的時候：清晰展示大雄成功逃跑圖片 + 彩帶) -->
+    <!-- Win Game Modal (贏的時候) -->
     <div id="winModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl p-4 sm:p-5 max-w-sm w-full text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-emerald-500 relative animate-[flipIn3D_0.3s_ease-out]">
-            
-            <!-- 清晰展示 image (3).jpg -->
-            <div class="w-full h-40 sm:h-48 rounded-2xl overflow-hidden mb-3 border-2 border-emerald-200 shadow-inner relative bg-slate-100">
+        <div class="bg-white rounded-3xl p-4 sm:p-5 max-w-sm w-full text-center shadow-2xl border-4 border-emerald-500 relative animate-[flipIn3D_0.3s_ease-out]">
+            <div class="w-full h-36 sm:h-44 rounded-2xl overflow-hidden mb-3 border-2 border-emerald-200 shadow-inner relative bg-slate-100">
                 <img src="./image (3).jpg" class="w-full h-full object-cover">
                 <div class="absolute bottom-2 right-2 bg-emerald-500 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">
                     安全抵達 🏡
@@ -412,16 +460,46 @@
             </div>
             
             <h2 class="text-xl sm:text-2xl font-black text-emerald-600 mb-1">太棒了！成功甩開胖虎！</h2>
-            <p class="text-xs sm:text-sm font-bold text-slate-500 mb-3">大雄順利逃回家了，你的數學太強啦！</p>
+            <p class="text-xs font-bold text-slate-500 mb-3">大雄順利逃回家了，你的數學太強啦！</p>
             
-            <div class="bg-emerald-50 rounded-2xl p-2.5 mb-4 border border-emerald-200 font-black text-slate-700 flex justify-around items-center">
-                <div>完成目標：<span id="winScore" class="text-xl text-emerald-600">10</span> 題</div>
+            <div class="bg-emerald-50 rounded-2xl p-2.5 mb-3 border border-emerald-200 font-black text-slate-700 text-xs sm:text-sm flex justify-around items-center">
+                <div>完成目標：<span id="winScore" class="text-lg text-emerald-600">10</span> 題</div>
                 <div class="text-amber-500"><i class="fa-solid fa-fire"></i> 最高連擊：<span id="maxComboText">0</span></div>
             </div>
             
-            <button onclick="startGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-emerald-400 to-emerald-600 text-white font-black rounded-2xl text-sm sm:text-base flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-trophy"></i>
-                <span>太好玩了！再玩一次！</span>
+            <div class="space-y-2">
+                <button id="btnReviewWin" onclick="openMistakeModal()" class="hidden btn-3d w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-amber-500">
+                    <i class="fa-solid fa-book-open text-rose-600"></i>
+                    <span>📖 回顧本次錯題 (<span id="mistakeCountWin">0</span>)</span>
+                </button>
+                <button onclick="startGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-emerald-400 to-emerald-600 text-white font-black rounded-xl text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>再玩一次！</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📓 錯題本與考後回顧 Modal -->
+    <div id="mistakeModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-4 sm:p-5 shadow-2xl border-4 border-rose-400 relative max-h-[85vh] flex flex-col">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100 flex-shrink-0">
+                <div class="flex items-center space-x-2">
+                    <img src="./image_c2c236.png" class="w-9 h-9 rounded-full border-2 border-rose-400 object-cover bg-rose-50 shrink-0">
+                    <div>
+                        <h3 class="text-sm sm:text-base font-black text-slate-800">出木杉的錯題訂正筆記</h3>
+                        <p class="text-[10px] sm:text-xs font-bold text-rose-500">弄懂錯題，下次胖虎絕對追不上你！</p>
+                    </div>
+                </div>
+                <button onclick="closeMistakeModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div id="mistakeListContainer" class="overflow-y-auto py-3 space-y-3 text-xs flex-1 pr-1">
+                <!-- 動態塞入錯題卡片 -->
+            </div>
+
+            <button onclick="closeMistakeModal()" class="btn-3d w-full mt-2 py-2.5 bg-slate-800 text-white font-black rounded-xl text-sm flex-shrink-0">
+                訂正完畢，返回結算畫面
             </button>
         </div>
     </div>
@@ -504,14 +582,67 @@
         let currentLevel = 1; 
         let currentQuestionType = 1; 
         let isProcessing = false;
-        let dropRate = 0.35; 
+        let dropRate = 0.32; 
 
         let gadgetTimes = 3;
         let gadgetHints = 3;
+        let mistakesList = []; // 儲存本次錯題
 
         const WIN_SCORE = 10; 
 
-        let currentData = { numL: 1, denL: 2, valL: 0.5, numR: 1, denR: 3, valR: 0.33, correctSide: 'left' };
+        let currentData = { numL: 1, denL: 2, valL: 0.5, numR: 1, denR: 3, valR: 0.33, correctSide: 'left', qType: 1 };
+
+        const METHOD_NAMES = {
+            1: "同分母比較法",
+            2: "同分子比較法",
+            3: "通分法",
+            4: "基準數法 (比一半)",
+            5: "化為小數法"
+        };
+
+        // 產生視覺化等分長條圖 HTML
+        function createFractionBarHTML(num, den, isLarge = false) {
+            let cells = '';
+            // 若分母 <= 15，畫出每一格的等分線，幫助小學生數格子
+            if (den <= 15) {
+                for (let i = 0; i < den; i++) {
+                    let filled = i < num ? 'bg-gradient-to-t from-[#00A0E9] to-sky-400' : 'bg-white/70';
+                    cells += `<div class="h-full flex-1 ${filled} first:rounded-l last:rounded-r"></div>`;
+                }
+            } else {
+                let pct = Math.min(100, Math.round((num / den) * 100));
+                cells = `<div class="h-full bg-gradient-to-r from-[#00A0E9] to-sky-400 rounded" style="width:${pct}%"></div>`;
+            }
+            return cells;
+        }
+
+        // 產生詳細解題步驟說明 (供錯題本與提示使用)
+        function getDetailedExplanation(data) {
+            const { numL, denL, numR, denR, valL, valR, qType } = data;
+            const sign = valL > valR ? '>' : '<';
+            const winner = valL > valR ? `${numL}/${denL}` : `${numR}/${denR}`;
+
+            if (qType === 1) {
+                return `【同分母比較法】兩邊分母都是 ${denL}（切成的份數一樣），直接比分子：因為 ${numL} ${sign} ${numR}，所以 ${winner} 比較大。`;
+            } else if (qType === 2) {
+                return `【同分子比較法】兩邊分子都是 ${numL}（拿的塊數一樣），分母越小代表切得越大塊！因為分母 ${denL} ${valL > valR ? '<' : '>'} ${denR}，所以 ${winner} 比較大。`;
+            } else if (qType === 3) {
+                let l = (denL * denR) / gcd(denL, denR);
+                let nL = numL * (l / denL);
+                let nR = numR * (l / denR);
+                return `【通分法】找分母 ${denL} 和 ${denR} 的最小公倍數 ${l}。通分後變成 ${nL}/${l} 與 ${nR}/${l}，因為 ${nL}/${l} ${sign} ${nR}/${l}，所以 ${winner} 比較大。`;
+            } else if (qType === 4) {
+                let halfL = denL / 2;
+                let halfR = denR / 2;
+                let descL = numL > halfL ? `大於一半(${halfL}/${denL})` : `小於一半(${halfL}/${denL})`;
+                let descR = numR > halfR ? `大於一半(${halfR}/${denR})` : `小於一半(${halfR}/${denR})`;
+                return `【基準數法】跟 1/2（一半）比大小：${numL}/${denL} ${descL}，而 ${numR}/${denR} ${descR}，所以 ${winner} 比較大。`;
+            } else {
+                let dL = Number(valL.toFixed(3));
+                let dR = Number(valR.toFixed(3));
+                return `【化為小數法】將分子除以分母：${numL}/${denL} = ${dL}，${numR}/${denR} = ${dR}。因為 ${dL} ${sign} ${dR}，所以 ${winner} 比較大。`;
+            }
+        }
 
         function setLevel(lvl) {
             currentLevel = lvl;
@@ -519,23 +650,23 @@
                 let btn = document.getElementById(`lvl${i}`);
                 if(i === lvl) {
                     btn.className = i === 6 
-                        ? "snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-boss-active"
-                        : "snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active";
+                        ? "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-boss-active"
+                        : "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active";
                 } else {
                     btn.className = i === 6
-                        ? "snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200"
-                        : "snap-start shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive";
+                        ? "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200"
+                        : "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive";
                 }
             }
 
             const talk = document.getElementById('doraTalk');
             switch(lvl) {
-                case 1: talk.innerText = "「同分母，比分子！分子越大分數越大！」"; dropRate = 0.32; break;
-                case 2: talk.innerText = "「同分子，比分母！分母越小分數越大！」"; dropRate = 0.32; break;
-                case 3: talk.innerText = "「找出分母的最小公倍數，通分後再比較！」"; dropRate = 0.38; break;
-                case 4: talk.innerText = "「把它們跟 1/2 (一半) 比較看看，誰大於一半？」"; dropRate = 0.42; break;
-                case 5: talk.innerText = "「試著把它們除開，變成小數來比比看！」"; dropRate = 0.48; break;
-                case 6: talk.innerText = "「胖虎暴走中！靈活運用 5 種方法找出答案！」"; dropRate = 0.60; break;
+                case 1: talk.innerText = "「同分母，比分子！分子越大分數越大！」"; dropRate = 0.30; break;
+                case 2: talk.innerText = "「同分子，比分母！分母越小分數越大！」"; dropRate = 0.30; break;
+                case 3: talk.innerText = "「找出分母的最小公倍數，通分後再比較！」"; dropRate = 0.36; break;
+                case 4: talk.innerText = "「把它們跟 1/2 (一半) 比較看看，誰大於一半？」"; dropRate = 0.40; break;
+                case 5: talk.innerText = "「試著把它們除開，變成小數來比比看！」"; dropRate = 0.45; break;
+                case 6: talk.innerText = "「綜合挑戰！每答對3題會有出木杉的策略獎勵題喔！」"; dropRate = 0.55; break;
             }
 
             startGame();
@@ -544,6 +675,8 @@
         function startGame() {
             document.getElementById('gameOverModal').classList.add('hidden');
             document.getElementById('winModal').classList.add('hidden');
+            document.getElementById('mistakeModal').classList.add('hidden');
+            document.getElementById('strategyModal').classList.add('hidden');
             stopConfetti();
             
             score = 0;
@@ -552,6 +685,7 @@
             distance = 100;
             gadgetTimes = 3;
             gadgetHints = 3;
+            mistakesList = [];
             
             updateDashboard();
             updateComboUI();
@@ -592,25 +726,40 @@
 
             if (clampedDistance > 60) {
                 dangerLevel.innerText = "安全";
-                dangerLevel.parentElement.parentElement.className = "text-[11px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-3 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1";
+                dangerLevel.parentElement.parentElement.className = "text-[10px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1";
                 chaseImage.className = "w-full h-full object-cover object-[center_40%] running-anim";
                 dangerOverlay.className = "absolute inset-0 bg-rose-600/0 transition-colors duration-200 pointer-events-none";
             } else if (clampedDistance > 30) {
                 dangerLevel.innerText = "警告";
-                dangerLevel.parentElement.parentElement.className = "text-[11px] sm:text-xs font-black text-amber-600 bg-white/95 backdrop-blur px-3 py-1 rounded-full shadow-md border border-amber-200 flex items-center space-x-1 animate-pulse";
+                dangerLevel.parentElement.parentElement.className = "text-[10px] sm:text-xs font-black text-amber-600 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-amber-200 flex items-center space-x-1 animate-pulse";
                 chaseImage.className = "w-full h-full object-cover object-[center_40%] running-anim";
                 dangerOverlay.className = "absolute inset-0 bg-rose-600/15 transition-colors duration-200 pointer-events-none";
             } else {
                 dangerLevel.innerText = "危險！";
-                dangerLevel.parentElement.parentElement.className = "text-[11px] sm:text-xs font-black text-white bg-rose-600 px-3 py-1 rounded-full shadow-md flex items-center space-x-1 animate-bounce";
+                dangerLevel.parentElement.parentElement.className = "text-[10px] sm:text-xs font-black text-white bg-rose-600 px-2.5 py-1 rounded-full shadow-md flex items-center space-x-1 animate-bounce";
                 chaseImage.className = "w-full h-full object-cover object-[center_40%] running-anim-fast";
                 dangerOverlay.className = "absolute inset-0 bg-rose-600/35 transition-colors duration-200 animate-pulse pointer-events-none";
+            }
+        }
+
+        function updateReviewButtons() {
+            const btnLose = document.getElementById('btnReviewLose');
+            const btnWin = document.getElementById('btnReviewWin');
+            if (mistakesList.length > 0) {
+                document.getElementById('mistakeCountLose').innerText = mistakesList.length;
+                document.getElementById('mistakeCountWin').innerText = mistakesList.length;
+                btnLose.classList.remove('hidden');
+                btnWin.classList.remove('hidden');
+            } else {
+                btnLose.classList.add('hidden');
+                btnWin.classList.add('hidden');
             }
         }
 
         function triggerGameOver() {
             clearInterval(gameLoopTimer);
             document.getElementById('finalScore').innerText = score;
+            updateReviewButtons();
             document.getElementById('gameOverModal').classList.remove('hidden');
             wrongSound.currentTime = 0;
             wrongSound.play().catch(e=>{});
@@ -620,6 +769,7 @@
             clearInterval(gameLoopTimer);
             document.getElementById('winScore').innerText = score;
             document.getElementById('maxComboText').innerText = maxCombo;
+            updateReviewButtons();
             document.getElementById('winModal').classList.remove('hidden');
             correctSound.currentTime = 0;
             correctSound.play().catch(e=>{});
@@ -630,6 +780,12 @@
             resetCardStyles();
             generateFractions();
             renderFractions();
+
+            // 第 6 關綜合挑戰：每答對 3 題目 (例如 3, 6, 9 分時) 彈出「方法識別」獎勵題
+            if (currentLevel === 6 && score > 0 && score % 3 === 0 && !currentData.strategyAsked) {
+                currentData.strategyAsked = true;
+                openStrategyQuiz();
+            }
         }
 
         function generateFractions() {
@@ -643,24 +799,27 @@
                 while(n1 === n2) n2 = getRandomInt(1, d1 - 1);
             } 
             else if (currentQuestionType === 2) {
-                n1 = n2 = getRandomInt(1, 9);
-                d1 = getRandomInt(n1 + 1, 15);
-                d2 = getRandomInt(n1 + 1, 15);
-                while(d1 === d2) d2 = getRandomInt(n1 + 1, 15);
+                n1 = n2 = getRandomInt(1, 8);
+                d1 = getRandomInt(n1 + 1, 14);
+                d2 = getRandomInt(n1 + 1, 14);
+                while(d1 === d2) d2 = getRandomInt(n1 + 1, 14);
             }
             else if (currentQuestionType === 3) {
-                let pairs = [[3,4], [3,5], [4,5], [4,6], [5,6], [5,7], [6,7], [6,8], [7,8], [8,9]];
+                let pairs = [[3,4], [2,5], [3,5], [4,5], [3,7], [4,7], [5,6], [5,8]];
                 let p = pairs[getRandomInt(0, pairs.length-1)];
                 d1 = p[0]; d2 = p[1];
                 n1 = getRandomInt(1, d1-1);
                 n2 = getRandomInt(1, d2-1);
-                while(n1/d1 === n2/d2) n2 = getRandomInt(1, d2-1);
+                while(n1/d1 === n2/d2 || n1 === n2) n2 = getRandomInt(1, d2-1);
             }
             else if (currentQuestionType === 4) {
-                let below = [ {n:3, d:7}, {n:4, d:9}, {n:5, d:11}, {n:6, d:13}, {n:2, d:5} ];
-                let above = [ {n:4, d:7}, {n:5, d:9}, {n:6, d:11}, {n:7, d:13}, {n:3, d:5} ];
+                let below = [ {n:3, d:7}, {n:4, d:9}, {n:5, d:11}, {n:6, d:13}, {n:2, d:5}, {n:3, d:8} ];
+                let above = [ {n:4, d:7}, {n:5, d:9}, {n:6, d:11}, {n:7, d:13}, {n:3, d:5}, {n:5, d:8} ];
                 let b = below[getRandomInt(0, below.length-1)];
                 let a = above[getRandomInt(0, above.length-1)];
+                while (b.d === a.d || b.n === a.n) {
+                    a = above[getRandomInt(0, above.length-1)];
+                }
                 n1 = b.n; d1 = b.d;
                 n2 = a.n; d2 = a.d;
             }
@@ -671,7 +830,7 @@
                 ];
                 let f1 = decFracs[getRandomInt(0, decFracs.length-1)];
                 let f2 = decFracs[getRandomInt(0, decFracs.length-1)];
-                while((f1.n/f1.d) === (f2.n/f2.d)) {
+                while((f1.n/f1.d) === (f2.n/f2.d) || f1.d === f2.d || f1.n === f2.n) {
                     f2 = decFracs[getRandomInt(0, decFracs.length-1)];
                 }
                 n1 = f1.n; d1 = f1.d;
@@ -690,7 +849,9 @@
             currentData = {
                 numL: n1, denL: d1, valL: val1,
                 numR: n2, denR: d2, valR: val2,
-                correctSide: val1 > val2 ? 'left' : 'right'
+                correctSide: val1 > val2 ? 'left' : 'right',
+                qType: currentQuestionType,
+                strategyAsked: false
             };
         }
 
@@ -698,10 +859,9 @@
             const cardL = document.getElementById('breadLeft');
             const cardR = document.getElementById('breadRight');
 
-            // 觸發 3D 翻牌動畫
             cardL.classList.remove('flip-in');
             cardR.classList.remove('flip-in');
-            void cardL.offsetWidth; // 強制重繪
+            void cardL.offsetWidth;
             cardL.classList.add('flip-in');
             cardR.classList.add('flip-in');
 
@@ -710,8 +870,45 @@
             document.getElementById('numR').innerText = currentData.numR;
             document.getElementById('denR').innerText = currentData.denR;
             
+            // 預先繪製好視覺化分數長條圖 (預設隱藏，按放大鏡或答錯時顯示)
+            const vL = document.getElementById('visualLeft');
+            const vR = document.getElementById('visualRight');
+            vL.innerHTML = createFractionBarHTML(currentData.numL, currentData.denL);
+            vR.innerHTML = createFractionBarHTML(currentData.numR, currentData.denR);
+            vL.classList.add('hidden');
+            vR.classList.add('hidden');
+
             document.getElementById('hintLeft').classList.add('hidden');
             document.getElementById('hintRight').classList.add('hidden');
+        }
+
+        // 顯示卡片上的視覺化長條圖與文字提示
+        function showVisualAndTextHints() {
+            const hl = document.getElementById('hintLeft');
+            const hr = document.getElementById('hintRight');
+            const vl = document.getElementById('visualLeft');
+            const vr = document.getElementById('visualRight');
+
+            if (currentData.qType === 1) {
+                hl.innerText = `同分母，比分子`; hr.innerText = `同分母，比分子`;
+            } else if (currentData.qType === 2) {
+                hl.innerText = `同分子，比分母`; hr.innerText = `同分子，比分母`;
+            } else if (currentData.qType === 3) {
+                let l = (currentData.denL * currentData.denR) / gcd(currentData.denL, currentData.denR);
+                hl.innerText = `通分: ${currentData.numL * (l/currentData.denL)}/${l}`;
+                hr.innerText = `通分: ${currentData.numR * (l/currentData.denR)}/${l}`;
+            } else if (currentData.qType === 4) {
+                hl.innerText = currentData.valL > 0.5 ? `> 1/2 (比一半大)` : `< 1/2 (比一半小)`;
+                hr.innerText = currentData.valR > 0.5 ? `> 1/2 (比一半大)` : `< 1/2 (比一半小)`;
+            } else {
+                hl.innerText = `小數: ${Number(currentData.valL.toFixed(3))}`;
+                hr.innerText = `小數: ${Number(currentData.valR.toFixed(3))}`;
+            }
+
+            vl.classList.remove('hidden');
+            vr.classList.remove('hidden');
+            hl.classList.remove('hidden');
+            hr.classList.remove('hidden');
         }
 
         function spawnFloatingText(x, y, text, colorClass) {
@@ -738,7 +935,6 @@
                 combo++;
                 if (combo > maxCombo) maxCombo = combo;
 
-                // 連擊獎勵距離
                 let boost = 16 + Math.min(combo * 2, 12);
                 distance = Math.min(100, distance + boost); 
                 
@@ -766,6 +962,9 @@
                 combo = 0;
                 updateComboUI();
 
+                // 記錄到錯題本中
+                mistakesList.push({ ...currentData });
+
                 distance -= 25; 
                 if(distance < 0) distance = 0;
 
@@ -775,7 +974,9 @@
                 if (currentData.correctSide === 'left') cardL.classList.add('correct');
                 else cardR.classList.add('correct');
 
-                // 觸發全螢幕震動
+                // 答錯時自動顯示視覺化分數長條圖，讓學生立刻看懂高低差異
+                showVisualAndTextHints();
+
                 const body = document.getElementById('mainBody');
                 body.classList.remove('screen-shake');
                 void body.offsetWidth;
@@ -786,12 +987,99 @@
                 wrongSound.currentTime = 0;
                 wrongSound.play().catch(e=>{});
 
+                // 稍微延長停留時間 (1.4秒)，讓學生看一眼視覺化長條圖
                 setTimeout(() => {
                     isProcessing = false;
                     nextQuestion();
-                }, 950);
+                }, 1400);
             }
             updateChaseUI();
+        }
+
+        // 🎁 綜合關卡：「方法識別」加分機制
+        function openStrategyQuiz() {
+            isProcessing = true; // 暫停胖虎追逐
+            document.getElementById('stratNumL').innerText = currentData.numL;
+            document.getElementById('stratDenL').innerText = currentData.denL;
+            document.getElementById('stratNumR').innerText = currentData.numR;
+            document.getElementById('stratDenR').innerText = currentData.denR;
+            document.getElementById('stratFeedback').classList.add('hidden');
+            document.getElementById('strategyModal').classList.remove('hidden');
+        }
+
+        function checkStrategyAnswer(chosenMethod) {
+            const fb = document.getElementById('stratFeedback');
+            fb.classList.remove('hidden');
+
+            // 檢查是否符合該題最推薦的解法 (或合理的通用解法)
+            let isCorrect = (chosenMethod === currentData.qType);
+            // 若題目分母相同選1、分子相同選2
+            if (currentData.denL === currentData.denR && chosenMethod === 1) isCorrect = true;
+            if (currentData.numL === currentData.numR && chosenMethod === 2) isCorrect = true;
+
+            if (isCorrect) {
+                gadgetTimes++;
+                distance = Math.min(100, distance + 20);
+                updateGadgetUI();
+                updateChaseUI();
+                fb.className = "text-xs font-black py-2 px-3 rounded-xl mt-2 bg-emerald-100 text-emerald-800 border border-emerald-300";
+                fb.innerText = `🎉 答對了！用「${METHOD_NAMES[chosenMethod]}」最快！獲得 🚁 竹蜻蜓 +1！`;
+                correctSound.currentTime = 0;
+                correctSound.play().catch(e=>{});
+            } else {
+                fb.className = "text-xs font-black py-2 px-3 rounded-xl mt-2 bg-amber-100 text-amber-900 border border-amber-300";
+                fb.innerText = `💡 這題其實用「${METHOD_NAMES[currentData.qType]}」會更快喔！繼續加油！`;
+            }
+
+            // 同時把提示打開幫助學生做這題
+            showVisualAndTextHints();
+
+            setTimeout(() => {
+                document.getElementById('strategyModal').classList.add('hidden');
+                isProcessing = false;
+            }, 1500);
+        }
+
+        // 📓 開啟錯題回顧視窗
+        function openMistakeModal() {
+            const container = document.getElementById('mistakeListContainer');
+            container.innerHTML = '';
+
+            mistakesList.forEach((item, idx) => {
+                const sign = item.valL > item.valR ? '>' : '<';
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-3 rounded-2xl border-2 border-slate-200 space-y-2";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="font-black text-rose-600 text-xs">錯題 #${idx + 1}</span>
+                        <span class="text-[10px] font-extrabold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">${METHOD_NAMES[item.qType]}</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 items-center pt-1">
+                        <div class="flex flex-col items-center bg-white p-2 rounded-xl border ${item.valL > item.valR ? 'border-emerald-400 bg-emerald-50/30' : 'border-slate-200'}">
+                            <span class="font-black text-base text-slate-800">${item.numL}/${item.denL} ${item.valL > item.valR ? '👑' : ''}</span>
+                            <div class="w-full bg-slate-200 h-3 rounded-md overflow-hidden flex p-0.5 gap-0.5 mt-1 border border-slate-300">
+                                ${createFractionBarHTML(item.numL, item.denL)}
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center bg-white p-2 rounded-xl border ${item.valR > item.valL ? 'border-emerald-400 bg-emerald-50/30' : 'border-slate-200'}">
+                            <span class="font-black text-base text-slate-800">${item.numR}/${item.denR} ${item.valR > item.valL ? '👑' : ''}</span>
+                            <div class="w-full bg-slate-200 h-3 rounded-md overflow-hidden flex p-0.5 gap-0.5 mt-1 border border-slate-300">
+                                ${createFractionBarHTML(item.numR, item.denR)}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-700 font-bold leading-relaxed bg-amber-50/80 p-2 rounded-xl border border-amber-200/80">
+                        💡 ${getDetailedExplanation(item)}
+                    </p>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('mistakeModal').classList.remove('hidden');
+        }
+
+        function closeMistakeModal() {
+            document.getElementById('mistakeModal').classList.add('hidden');
         }
 
         function updateComboUI() {
@@ -808,8 +1096,8 @@
         function resetCardStyles() {
             const cardL = document.getElementById('breadLeft');
             const cardR = document.getElementById('breadRight');
-            cardL.className = 'bread-card-3d flex flex-col items-center justify-center outline-none';
-            cardR.className = 'bread-card-3d flex flex-col items-center justify-center outline-none';
+            cardL.className = 'bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none';
+            cardR.className = 'bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none';
         }
 
         function useGadgetTime() {
@@ -826,28 +1114,7 @@
             if (gadgetHints <= 0 || isProcessing || distance <= 0) return;
             gadgetHints--;
             updateGadgetUI();
-
-            const hl = document.getElementById('hintLeft');
-            const hr = document.getElementById('hintRight');
-
-            if (currentQuestionType === 1) {
-                hl.innerText = `同分母，比分子`; hr.innerText = `同分母，比分子`;
-            } else if (currentQuestionType === 2) {
-                hl.innerText = `同分子，比分母`; hr.innerText = `同分子，比分母`;
-            } else if (currentQuestionType === 3) {
-                let l = (currentData.denL * currentData.denR) / gcd(currentData.denL, currentData.denR);
-                hl.innerText = `通分: ${currentData.numL * (l/currentData.denL)}/${l}`;
-                hr.innerText = `通分: ${currentData.numR * (l/currentData.denR)}/${l}`;
-            } else if (currentQuestionType === 4) {
-                hl.innerText = currentData.valL > 0.5 ? `> 1/2 (比一半大)` : `< 1/2 (比一半小)`;
-                hr.innerText = currentData.valR > 0.5 ? `> 1/2 (比一半大)` : `< 1/2 (比一半小)`;
-            } else {
-                hl.innerText = `小數: ${Number(currentData.valL.toFixed(3))}`;
-                hr.innerText = `小數: ${Number(currentData.valR.toFixed(3))}`;
-            }
-
-            hl.classList.remove('hidden');
-            hr.classList.remove('hidden');
+            showVisualAndTextHints();
         }
 
         function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
