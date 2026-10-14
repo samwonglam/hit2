@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>哆啦A夢：3D 分數大小追逐戰 (教學升級版)</title>
+    <title>哆啦A夢：3D 分數大小追逐戰 (課堂終極旗艦版)</title>
     
     <!-- Tailwind CSS & Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,12 +49,12 @@
         .bread-card-3d {
             background: linear-gradient(180deg, #FFFDF5 0%, #FDF0D0 100%);
             border: 5px solid var(--dora-bread-crust);
-            border-radius: 24px;
+            border-radius: 22px;
             box-shadow: 
-                0 10px 0 var(--dora-bread-dark),
-                0 15px 20px rgba(0,0,0,0.22),
+                0 8px 0 var(--dora-bread-dark),
+                0 14px 18px rgba(0,0,0,0.2),
                 inset 0 0 15px rgba(184, 115, 51, 0.25);
-            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s, border-color 0.2s, background 0.2s;
+            transition: transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.14s, border-color 0.2s, background 0.2s;
             cursor: pointer;
             position: relative;
             transform-style: preserve-3d;
@@ -65,16 +65,16 @@
         @media (min-width: 640px) {
             .bread-card-3d { 
                 border-width: 6px; 
-                border-radius: 28px; 
-                box-shadow: 0 12px 0 var(--dora-bread-dark), 0 18px 25px rgba(0,0,0,0.22), inset 0 0 20px rgba(184, 115, 51, 0.25);
+                border-radius: 26px; 
+                box-shadow: 0 11px 0 var(--dora-bread-dark), 0 16px 22px rgba(0,0,0,0.22), inset 0 0 20px rgba(184, 115, 51, 0.25);
             }
         }
 
         .bread-card-3d:active {
-            transform: translateY(8px) rotateX(2deg) scale(0.98);
+            transform: translateY(7px) rotateX(2deg) scale(0.98);
             box-shadow: 
                 0 2px 0 var(--dora-bread-dark),
-                0 5px 10px rgba(0,0,0,0.2),
+                0 4px 8px rgba(0,0,0,0.2),
                 inset 0 0 15px rgba(184, 115, 51, 0.35);
         }
 
@@ -82,22 +82,22 @@
             border-color: #10b981;
             background: linear-gradient(180deg, #ecfdf5 0%, #d1fae5 100%);
             box-shadow: 
-                0 10px 0 #059669,
-                0 0 35px rgba(16, 185, 129, 0.8);
-            animation: cardWinJump 0.5s ease-out;
+                0 9px 0 #059669,
+                0 0 32px rgba(16, 185, 129, 0.8);
+            animation: cardWinJump 0.45s ease-out;
         }
 
         .bread-card-3d.wrong {
             border-color: #ef4444;
             background: linear-gradient(180deg, #fef2f2 0%, #fee2e2 100%);
             box-shadow: 
-                0 10px 0 #b91c1c,
-                0 0 30px rgba(239, 68, 68, 0.8);
+                0 9px 0 #b91c1c,
+                0 0 28px rgba(239, 68, 68, 0.8);
             animation: shake3D 0.4s ease-in-out;
         }
 
         .flip-in {
-            animation: flipIn3D 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: flipIn3D 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         @keyframes flipIn3D {
@@ -107,13 +107,13 @@
 
         @keyframes cardWinJump {
             0%, 100% { transform: translateY(0) rotateX(6deg) scale(1); }
-            50% { transform: translateY(-14px) rotateX(12deg) scale(1.05); }
+            50% { transform: translateY(-12px) rotateX(12deg) scale(1.04); }
         }
 
         @keyframes shake3D {
             0%, 100% { transform: translateX(0) rotateX(6deg); }
-            20%, 60% { transform: translateX(-10px) rotateZ(-3deg) rotateX(6deg); }
-            40%, 80% { transform: translateX(10px) rotateZ(3deg) rotateX(6deg); }
+            20%, 60% { transform: translateX(-9px) rotateZ(-3deg) rotateX(6deg); }
+            40%, 80% { transform: translateX(9px) rotateZ(3deg) rotateX(6deg); }
         }
 
         .screen-shake {
@@ -155,19 +155,19 @@
 
         .btn-3d {
             transition: all 0.1s;
-            box-shadow: 0 5px 0 rgba(0,0,0,0.2), 0 6px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 0 rgba(0,0,0,0.22), 0 6px 10px rgba(0,0,0,0.15);
             transform: translateY(0);
         }
         .btn-3d:active {
-            transform: translateY(4px);
-            box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.1);
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.22), 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .lvl-btn-active {
             background: #00A0E9;
             color: white;
-            box-shadow: 0 4px 0 #0077B6;
-            transform: translateY(-2px);
+            box-shadow: 0 3px 0 #0077B6;
+            transform: translateY(-1px);
         }
         .lvl-btn-inactive {
             background: white;
@@ -178,8 +178,8 @@
         .lvl-btn-boss-active {
             background: #e11d48;
             color: white;
-            box-shadow: 0 4px 0 #9f1239;
-            transform: translateY(-2px);
+            box-shadow: 0 3px 0 #9f1239;
+            transform: translateY(-1px);
         }
 
         @keyframes running-bob {
@@ -198,18 +198,28 @@
             background-size: 16px 16px;
             background-position: 0 0, 8px 8px;
         }
-        #gianRunner { transition: left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        #gianRunner, #vsGianRunner { transition: left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
         @keyframes floatUpFade {
             0% { transform: translateY(0) scale(0.8); opacity: 1; }
-            50% { transform: translateY(-25px) scale(1.2); opacity: 1; }
-            100% { transform: translateY(-50px) scale(1); opacity: 0; }
+            40% { transform: translateY(-22px) scale(1.15); opacity: 1; }
+            100% { transform: translateY(-48px) scale(1); opacity: 0; }
         }
         .floating-score {
             position: absolute;
             pointer-events: none;
-            animation: floatUpFade 0.8s ease-out forwards;
-            z-index: 40;
+            animation: floatUpFade 0.85s ease-out forwards;
+            z-index: 45;
+        }
+
+        /* 銅鑼燒損耗動畫 */
+        @keyframes dorayakiPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4) rotate(15deg); }
+            100% { transform: scale(0.85); opacity: 0.25; filter: grayscale(100%); }
+        }
+        .dorayaki-lost {
+            animation: dorayakiPop 0.45s forwards;
         }
     </style>
 </head>
@@ -218,153 +228,328 @@
     <!-- 勝利全螢幕彩帶 Canvas -->
     <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
 
+    <!-- 🎉 解鎖成就 Toast 通知 -->
+    <div id="achievementToast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden transition-all duration-300">
+        <div class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 text-slate-900 px-4 py-2 rounded-2xl shadow-[0_10px_25px_rgba(245,158,11,0.5)] border-2 border-white flex items-center space-x-3 animate-bounce">
+            <span id="toastIcon" class="text-2xl">🍞</span>
+            <div class="text-left">
+                <div class="text-[10px] font-black text-rose-700 uppercase tracking-wider">🎉 解鎖四次元秘密道具！</div>
+                <div id="toastTitle" class="text-xs sm:text-sm font-black">記憶麵包</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="bg-gradient-to-r from-[#00A0E9] to-[#0080C6] text-white shadow-lg sticky top-0 z-30 border-b-4 border-[#E60012] flex-shrink-0">
-        <div class="max-w-6xl mx-auto px-3 py-1.5 sm:px-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2 sm:space-x-3">
-                <div class="relative w-9 h-9 sm:w-11 sm:h-11 bg-white rounded-full border-2 border-[#FFDF00] flex items-center justify-center shadow-md overflow-hidden shrink-0">
+        <div class="max-w-6xl mx-auto px-2.5 py-1.5 sm:px-4 flex items-center justify-between gap-1">
+            <div class="flex items-center space-x-2 min-w-0">
+                <div class="relative w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full border-2 border-[#FFDF00] flex items-center justify-center shadow-md overflow-hidden shrink-0">
                     <img src="./image_c2c1a3.png" alt="Doraemon" class="w-full h-full object-cover scale-110">
                 </div>
-                <div class="min-w-0">
-                    <h1 class="text-sm sm:text-xl font-black tracking-wider text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] truncate">哆啦A夢：3D 分數追逐戰</h1>
-                </div>
+                <h1 class="text-xs sm:text-lg font-black tracking-wider text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] truncate">哆啦A夢：分數追逐戰</h1>
             </div>
-            <div class="flex items-center space-x-2">
-                <button onclick="openKnowledgeModal()" class="btn-3d px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 bg-[#FFDF00] hover:bg-amber-300 text-slate-900 font-black text-xs sm:text-sm rounded-xl flex items-center space-x-1 border-2 border-white shrink-0">
+
+            <!-- 頂部功能按鈕列：單/雙人切換、道具圖鑑、秘訣 -->
+            <div class="flex items-center space-x-1.5 shrink-0">
+                <button id="modeToggleBtn" onclick="toggleGameMode()" class="btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-rose-500 hover:bg-rose-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span id="modeToggleText">⚔️ 雙人PK</span>
+                </button>
+
+                <button onclick="openCollectionModal()" class="btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-purple-500 hover:bg-purple-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white relative">
+                    <span>🎒 圖鑑</span>
+                    <span id="collectionBadge" class="bg-white text-purple-800 px-1.5 rounded-full text-[9px] font-black">0/8</span>
+                </button>
+
+                <button onclick="openKnowledgeModal()" class="btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-[#FFDF00] hover:bg-amber-300 text-slate-900 font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white">
                     <i class="fa-solid fa-graduation-cap text-rose-600"></i>
-                    <span>出木杉秘訣</span>
+                    <span class="hidden sm:inline">出木杉秘訣</span>
+                    <span class="sm:hidden">秘訣</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Game Area -->
-    <main class="max-w-5xl mx-auto px-2.5 sm:px-4 py-1.5 flex-1 flex flex-col w-full overflow-y-auto overflow-x-hidden">
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-2 sm:px-4 py-1.5 flex-1 flex flex-col w-full overflow-y-auto overflow-x-hidden">
         
-        <!-- 關卡選擇區 -->
-        <div class="w-full bg-white/80 backdrop-blur rounded-2xl p-1 shadow-md border-2 border-white mb-2 shrink-0">
-            <div class="flex overflow-x-auto space-x-1.5 hide-scrollbar snap-x p-1 pr-4">
-                <button id="lvl1" onclick="setLevel(1)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active">1.同分母</button>
-                <button id="lvl2" onclick="setLevel(2)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">2.同分子</button>
-                <button id="lvl3" onclick="setLevel(3)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">3.通分法</button>
-                <button id="lvl4" onclick="setLevel(4)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">4.基準數</button>
-                <button id="lvl5" onclick="setLevel(5)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">5.化小數</button>
-                <button id="lvl6" onclick="setLevel(6)" class="snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200">🔥 綜合挑戰</button>
+        <!-- 關卡選擇區 (單人與雙人共用題庫難度) -->
+        <div class="w-full bg-white/85 backdrop-blur rounded-2xl p-1 shadow-md border-2 border-white mb-2 shrink-0 flex items-center justify-between">
+            <div class="flex overflow-x-auto space-x-1.5 hide-scrollbar snap-x p-1 pr-2 flex-1">
+                <button id="lvl1" onclick="setLevel(1)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active">1.同分母</button>
+                <button id="lvl2" onclick="setLevel(2)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">2.同分子</button>
+                <button id="lvl3" onclick="setLevel(3)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">3.通分法</button>
+                <button id="lvl4" onclick="setLevel(4)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">4.基準數</button>
+                <button id="lvl5" onclick="setLevel(5)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive">5.化小數</button>
+                <button id="lvl6" onclick="setLevel(6)" class="snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200">🔥 綜合挑戰</button>
             </div>
         </div>
 
-        <!-- 追逐實況區塊 -->
-        <div class="w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_6px_16px_rgba(0,0,0,0.1)] border-4 border-white mb-2 relative flex-shrink-0 flex flex-col">
-            <div class="w-full h-[135px] sm:h-[200px] md:h-[230px] relative bg-[#e3e7eb] overflow-hidden">
-                <img id="chaseImage" src="./image.jpg" class="w-full h-full object-cover object-center running-anim">
-                <div id="dangerOverlay" class="absolute inset-0 bg-rose-600/0 transition-colors duration-200 pointer-events-none"></div>
-                
-                <!-- 狀態標籤：距離危機 -->
-                <div class="absolute top-2 left-2.5 z-10">
-                    <div class="text-[10px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1">
-                        <i class="fa-solid fa-bolt text-amber-500"></i>
-                        <span>危機：<span id="dangerLevel">安全</span></span>
-                    </div>
-                </div>
-
-                <!-- 連擊 COMBO 徽章 -->
-                <div id="comboBadge" class="hidden absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white font-black text-xs sm:text-sm px-3 py-0.5 rounded-full shadow-lg border-2 border-white animate-bounce">
-                    🔥 COMBO x<span id="comboText">2</span>
-                </div>
-
-                <!-- 狀態標籤：過關目標進度 -->
-                <div class="absolute top-2 right-2.5 z-10">
-                    <div class="text-[10px] sm:text-xs font-black text-sky-900 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center">
-                        <i class="fa-solid fa-flag-checkered text-rose-500 mr-1"></i> 進度：<span id="scoreText" class="text-[#00A0E9] text-xs sm:text-sm mx-0.5">0</span> / 10
-                    </div>
-                </div>
-            </div>
-
-            <!-- 下方距離進度條 -->
-            <div class="w-full h-10 sm:h-12 checker-bg relative flex-shrink-0 border-t-2 border-slate-200">
-                <div id="safeBar" class="h-full bg-gradient-to-r from-[#ff6b6b] via-[#feca57] to-[#1dd1a1] transition-all duration-200 shadow-inner" style="width: 100%;"></div>
-                
-                <!-- 胖虎追逐頭像 -->
-                <div id="gianRunner" class="absolute top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 z-20" style="left: 0%;">
-                    <img src="./image_c2c218.png" class="w-full h-full object-cover rounded-full border-[3px] border-rose-600 bg-white shadow-lg">
-                </div>
-                <!-- 大雄終點頭像 -->
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 z-20 transform -translate-x-1 sm:-translate-x-2">
-                    <img src="./image_c2c1fb.png" class="w-full h-full object-cover rounded-full border-[3px] border-[#00A0E9] bg-white shadow-lg">
-                </div>
-            </div>
-        </div>
-
-        <!-- 哆啦A夢膠囊提示框 -->
-        <div class="w-full flex justify-center mb-2 px-1">
-            <div class="bg-gradient-to-r from-[#00A0E9] to-[#0284c7] text-white text-[11px] sm:text-sm font-black py-1 sm:py-1.5 px-4 sm:px-5 rounded-full shadow-md border-2 border-white flex items-center shrink-0 max-w-full">
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white flex items-center justify-center mr-2 shrink-0 overflow-hidden shadow-inner">
-                    <img src="./image_c2c1a3.png" class="w-full h-full object-cover scale-110"> 
-                </div>
-                <span id="doraTalk" class="tracking-wide truncate">「同分母，比分子！分子越大分數越大！」</span>
-            </div>
-        </div>
-
-        <!-- 3D 記憶麵包對決區 (內建動態視覺化分數長條圖) -->
-        <div class="scene-3d flex-1 flex items-stretch justify-center space-x-2.5 sm:space-x-6 pb-3 pt-1 w-full px-1">
-            <!-- 左邊麵包 -->
-            <div class="flex-1 max-w-[250px] flex relative">
-                <button id="breadLeft" onclick="checkAnswer('left', event)" class="bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none">
-                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">左邊麵包</div>
-                    
-                    <div id="fracLeft" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
-                        <span class="numerator" id="numL">1</span>
-                        <span class="denominator" id="denL">2</span>
-                    </div>
-                    
-                    <!-- 視覺化分數圖與文字提示區 -->
-                    <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[36px] justify-end">
-                        <div id="visualLeft" class="hidden w-full bg-amber-950/10 h-3 sm:h-4 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
-                        <div id="hintLeft" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2.5 py-0.5 rounded-full shadow-sm w-full truncate"></div>
-                    </div>
-                </button>
-            </div>
+        <!-- ================= 🏃‍♂️ 單人逃亡模式視圖 ================= -->
+        <div id="singlePlayerView" class="flex-1 flex flex-col w-full min-h-0">
             
-            <!-- VS 標誌 -->
-            <div class="flex flex-col items-center justify-center shrink-0">
-                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 text-white font-black text-sm sm:text-lg flex items-center justify-center shadow-lg border-2 border-white transform rotate-12">
-                    <span class="-rotate-12">VS</span>
+            <!-- 追逐實況區塊 -->
+            <div class="w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_6px_16px_rgba(0,0,0,0.1)] border-4 border-white mb-2 relative flex-shrink-0 flex flex-col">
+                <div class="w-full h-[125px] sm:h-[185px] md:h-[210px] relative bg-[#e3e7eb] overflow-hidden">
+                    <img id="chaseImage" src="./image.jpg" class="w-full h-full object-cover object-center running-anim">
+                    <div id="dangerOverlay" class="absolute inset-0 bg-rose-600/0 transition-colors duration-200 pointer-events-none"></div>
+                    
+                    <!-- 左上角：距離危機 + 🥞銅鑼燒護盾 -->
+                    <div class="absolute top-2 left-2.5 z-10 flex flex-wrap items-center gap-1.5">
+                        <div class="text-[10px] sm:text-xs font-black text-emerald-700 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center space-x-1">
+                            <i class="fa-solid fa-bolt text-amber-500"></i>
+                            <span>危機：<span id="dangerLevel">安全</span></span>
+                        </div>
+                        <!-- 🥞 銅鑼燒生命護盾 -->
+                        <div class="bg-amber-50/95 backdrop-blur px-2.5 py-0.5 rounded-full shadow-md border-2 border-amber-300 flex items-center space-x-1" title="銅鑼燒護盾：答錯時可擋住胖虎一次！">
+                            <span class="text-[10px] font-black text-amber-900">護盾:</span>
+                            <span id="shield1" class="text-sm sm:text-base transition-all">🥞</span>
+                            <span id="shield2" class="text-sm sm:text-base transition-all">🥞</span>
+                        </div>
+                    </div>
+
+                    <!-- 連擊 COMBO 徽章 -->
+                    <div id="comboBadge" class="hidden absolute bottom-2 left-1/2 -translate-x-1/2 z-10 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 text-white font-black text-xs sm:text-sm px-3 py-0.5 rounded-full shadow-lg border-2 border-white animate-bounce">
+                        🔥 COMBO x<span id="comboText">2</span>
+                    </div>
+
+                    <!-- 右上角：過關目標進度 -->
+                    <div class="absolute top-2 right-2.5 z-10">
+                        <div class="text-[10px] sm:text-xs font-black text-sky-900 bg-white/95 backdrop-blur px-2.5 py-1 rounded-full shadow-md border border-slate-100 flex items-center">
+                            <i class="fa-solid fa-flag-checkered text-rose-500 mr-1"></i> 進度：<span id="scoreText" class="text-[#00A0E9] text-xs sm:text-sm mx-0.5">0</span> / 10
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 下方距離進度條 -->
+                <div class="w-full h-9 sm:h-11 checker-bg relative flex-shrink-0 border-t-2 border-slate-200">
+                    <div id="safeBar" class="h-full bg-gradient-to-r from-[#ff6b6b] via-[#feca57] to-[#1dd1a1] transition-all duration-200 shadow-inner" style="width: 100%;"></div>
+                    
+                    <div id="gianRunner" class="absolute top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 z-20" style="left: 0%;">
+                        <img src="./image_c2c218.png" class="w-full h-full object-cover rounded-full border-[3px] border-rose-600 bg-white shadow-lg">
+                    </div>
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 z-20 transform -translate-x-1 sm:-translate-x-2">
+                        <img src="./image_c2c1fb.png" class="w-full h-full object-cover rounded-full border-[3px] border-[#00A0E9] bg-white shadow-lg">
+                    </div>
                 </div>
             </div>
 
-            <!-- 右邊麵包 -->
-            <div class="flex-1 max-w-[250px] flex relative">
-                <button id="breadRight" onclick="checkAnswer('right', event)" class="bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none">
-                    <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">右邊麵包</div>
-                    
-                    <div id="fracRight" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
-                        <span class="numerator" id="numR">3</span>
-                        <span class="denominator" id="denR">4</span>
+            <!-- 哆啦A夢膠囊提示框 -->
+            <div class="w-full flex justify-center mb-2 px-1 shrink-0">
+                <div class="bg-gradient-to-r from-[#00A0E9] to-[#0284c7] text-white text-[11px] sm:text-sm font-black py-1 px-4 rounded-full shadow-md border-2 border-white flex items-center shrink-0 max-w-full">
+                    <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center mr-1.5 shrink-0 overflow-hidden">
+                        <img src="./image_c2c1a3.png" class="w-full h-full object-cover scale-110"> 
                     </div>
-                    
-                    <!-- 視覺化分數圖與文字提示區 -->
-                    <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[36px] justify-end">
-                        <div id="visualRight" class="hidden w-full bg-amber-950/10 h-3 sm:h-4 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
-                        <div id="hintRight" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2.5 py-0.5 rounded-full shadow-sm w-full truncate"></div>
+                    <span id="doraTalk" class="tracking-wide truncate">「同分母，比分子！分子越大分數越大！」</span>
+                </div>
+            </div>
+
+            <!-- 3D 記憶麵包對決區 -->
+            <div class="scene-3d flex-1 flex items-stretch justify-center space-x-2.5 sm:space-x-6 pb-2.5 pt-0.5 w-full px-1 min-h-[150px]">
+                <!-- 左邊麵包 -->
+                <div class="flex-1 max-w-[240px] flex relative">
+                    <button id="breadLeft" onclick="checkAnswer('left', event)" class="bread-card-3d flex flex-col items-center justify-between py-2 px-2 outline-none">
+                        <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">左邊麵包</div>
+                        
+                        <div id="fracLeft" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
+                            <span class="numerator" id="numL">1</span>
+                            <span class="denominator" id="denL">2</span>
+                        </div>
+                        
+                        <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[32px] justify-end">
+                            <div id="visualLeft" class="hidden w-full bg-amber-950/10 h-3 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
+                            <div id="hintLeft" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2 py-0.5 rounded-full shadow-sm w-full truncate"></div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- VS 標誌 -->
+                <div class="flex flex-col items-center justify-center shrink-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 text-white font-black text-xs sm:text-base flex items-center justify-center shadow-lg border-2 border-white transform rotate-12">
+                        <span class="-rotate-12">VS</span>
                     </div>
+                </div>
+
+                <!-- 右邊麵包 -->
+                <div class="flex-1 max-w-[240px] flex relative">
+                    <button id="breadRight" onclick="checkAnswer('right', event)" class="bread-card-3d flex flex-col items-center justify-between py-2 px-2 outline-none">
+                        <div class="text-[10px] sm:text-xs font-extrabold text-amber-800/70 bg-amber-100/90 px-2.5 py-0.5 rounded-full">右邊麵包</div>
+                        
+                        <div id="fracRight" class="fraction toasted-text font-black text-4xl sm:text-6xl my-auto">
+                            <span class="numerator" id="numR">3</span>
+                            <span class="denominator" id="denR">4</span>
+                        </div>
+                        
+                        <div class="w-11/12 flex flex-col items-center space-y-1 min-h-[32px] justify-end">
+                            <div id="visualRight" class="hidden w-full bg-amber-950/10 h-3 rounded-lg overflow-hidden flex border border-amber-900/30 p-0.5 gap-0.5 shadow-inner"></div>
+                            <div id="hintRight" class="hidden text-[10px] sm:text-xs font-black text-white bg-rose-500 px-2 py-0.5 rounded-full shadow-sm w-full truncate"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 四次元道具欄 -->
+            <div class="w-full bg-white/90 backdrop-blur rounded-2xl p-1.5 shadow-lg border-2 border-white grid grid-cols-2 gap-2 shrink-0">
+                <button id="gadgetTimeBtn" onclick="useGadgetTime()" class="btn-3d bg-gradient-to-b from-sky-400 to-sky-500 hover:from-sky-300 hover:to-sky-400 text-white rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-sky-300">
+                    <span class="text-base">🚁</span>
+                    <span>竹蜻蜓加速</span>
+                    <span id="timeGadgetCount" class="bg-white text-sky-700 px-2 py-0.5 rounded-full text-[10px] font-black shadow-inner">3</span>
+                </button>
+                <button id="gadgetHintBtn" onclick="useGadgetHint()" class="btn-3d bg-gradient-to-b from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-amber-300">
+                    <span class="text-base">🔍</span>
+                    <span>透視圖解</span>
+                    <span id="hintGadgetCount" class="bg-white text-amber-700 px-2 py-0.5 rounded-full text-[10px] font-black shadow-inner">3</span>
                 </button>
             </div>
         </div>
 
-        <!-- 四次元道具欄 -->
-        <div class="w-full bg-white/90 backdrop-blur rounded-2xl p-1.5 sm:p-2 shadow-lg border-2 border-white grid grid-cols-2 gap-2 shrink-0 mb-1">
-            <button id="gadgetTimeBtn" onclick="useGadgetTime()" class="btn-3d bg-gradient-to-b from-sky-400 to-sky-500 hover:from-sky-300 hover:to-sky-400 text-white rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-sky-300">
-                <span class="text-base sm:text-lg">🚁</span>
-                <span>竹蜻蜓加速</span>
-                <span id="timeGadgetCount" class="bg-white text-sky-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner">3</span>
-            </button>
-            <button id="gadgetHintBtn" onclick="useGadgetHint()" class="btn-3d bg-gradient-to-b from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-900 rounded-xl py-2 px-3 font-black text-xs sm:text-sm flex items-center justify-center space-x-1.5 border border-amber-300">
-                <span class="text-base sm:text-lg">🔍</span>
-                <span>透視圖解</span>
-                <span id="hintGadgetCount" class="bg-white text-amber-700 px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-inner">3</span>
+        <!-- ================= ⚔️ 雙人同機 PK 模式視圖 (iPad 課堂神器) ================= -->
+        <div id="versusPlayerView" class="hidden flex-1 flex flex-col w-full min-h-0 justify-between">
+            
+            <!-- 胖虎拔河軌道區 -->
+            <div class="w-full bg-white rounded-2xl p-2.5 shadow-lg border-4 border-white mb-2 shrink-0">
+                <div class="flex justify-between items-center text-xs sm:text-sm font-black mb-1.5 px-1">
+                    <div class="flex items-center space-x-1.5 text-sky-700">
+                        <img src="./image_c2c1fb.png" class="w-6 h-6 rounded-full border-2 border-sky-500 bg-white">
+                        <span>1P 大雄隊：<span id="vsScore1" class="text-base text-sky-600">0</span>/10</span>
+                    </div>
+                    <div class="text-[11px] bg-rose-100 text-rose-700 px-2.5 py-0.5 rounded-full font-black animate-pulse">
+                        ⚡ 誰先答對就把胖虎推向對方！
+                    </div>
+                    <div class="flex items-center space-x-1.5 text-emerald-700">
+                        <span>2P 出木杉隊：<span id="vsScore2" class="text-base text-emerald-600">0</span>/10</span>
+                        <img src="./image_c2c236.png" class="w-6 h-6 rounded-full border-2 border-emerald-500 bg-white">
+                    </div>
+                </div>
+
+                <!-- 拔河軌道 -->
+                <div class="w-full h-11 sm:h-13 rounded-full bg-gradient-to-r from-sky-200 via-rose-200 to-emerald-200 relative overflow-hidden border-2 border-slate-300 shadow-inner flex items-center">
+                    <!-- 中線 -->
+                    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-400/60 border-dashed"></div>
+                    <!-- 1P 危險區標示 -->
+                    <div class="absolute left-2 text-[10px] font-black text-sky-800/60">1P 基地</div>
+                    <!-- 2P 危險區標示 -->
+                    <div class="absolute right-2 text-[10px] font-black text-emerald-800/60">2P 基地</div>
+
+                    <!-- 中間移動的胖虎 (0% = 1P被抓, 50% = 正中間, 100% = 2P被抓) -->
+                    <div id="vsGianRunner" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 z-20" style="left: 50%;">
+                        <img src="./image_c2c218.png" class="w-full h-full object-cover rounded-full border-4 border-rose-600 bg-white shadow-xl">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 雙人左右分割搶答區 -->
+            <div class="flex-1 grid grid-cols-2 gap-2.5 sm:gap-4 min-h-0 pb-1">
+                
+                <!-- 左側：1P 大雄藍隊控制區 -->
+                <div id="p1Panel" class="bg-sky-100/90 backdrop-blur rounded-3xl p-2.5 sm:p-4 border-4 border-sky-400 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-sky-200 pb-1.5">
+                        <div class="flex items-center space-x-1.5">
+                            <img src="./image_c2c1fb.png" class="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-sky-500 bg-white">
+                            <div>
+                                <div class="text-xs sm:text-sm font-black text-sky-900">1P 大雄隊</div>
+                                <div class="text-[9px] text-sky-600 font-bold">點擊較大的記憶麵包 (或按 A / D)</div>
+                            </div>
+                        </div>
+                        <span id="p1Status" class="text-[10px] font-black bg-sky-200 text-sky-800 px-2 py-0.5 rounded-full">準備搶答</span>
+                    </div>
+
+                    <!-- 1P 的兩張麵包卡 -->
+                    <div class="scene-3d flex-1 flex items-stretch justify-center space-x-2 sm:space-x-3 my-2">
+                        <button id="vsP1Left" onclick="checkVersusAnswer(1, 'left')" class="bread-card-3d flex-1 flex flex-col items-center justify-center py-2 outline-none">
+                            <span class="text-[9px] font-bold text-amber-800/60 mb-1">左 (A)</span>
+                            <div class="fraction toasted-text font-black text-2xl sm:text-5xl">
+                                <span class="numerator" id="vsP1NumL">1</span>
+                                <span class="denominator" id="vsP1DenL">2</span>
+                            </div>
+                        </button>
+                        <button id="vsP1Right" onclick="checkVersusAnswer(1, 'right')" class="bread-card-3d flex-1 flex flex-col items-center justify-center py-2 outline-none">
+                            <span class="text-[9px] font-bold text-amber-800/60 mb-1">右 (D)</span>
+                            <div class="fraction toasted-text font-black text-2xl sm:text-5xl">
+                                <span class="numerator" id="vsP1NumR">3</span>
+                                <span class="denominator" id="vsP1DenR">4</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右側：2P 出木杉綠隊控制區 -->
+                <div id="p2Panel" class="bg-emerald-100/90 backdrop-blur rounded-3xl p-2.5 sm:p-4 border-4 border-emerald-400 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-1.5">
+                        <div class="flex items-center space-x-1.5">
+                            <img src="./image_c2c236.png" class="w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-emerald-500 bg-white">
+                            <div>
+                                <div class="text-xs sm:text-sm font-black text-emerald-900">2P 出木杉隊</div>
+                                <div class="text-[9px] text-emerald-600 font-bold">點擊較大的記憶麵包 (或按 ⬅️ / ➡️)</div>
+                            </div>
+                        </div>
+                        <span id="p2Status" class="text-[10px] font-black bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full">準備搶答</span>
+                    </div>
+
+                    <!-- 2P 的兩張麵包卡 -->
+                    <div class="scene-3d flex-1 flex items-stretch justify-center space-x-2 sm:space-x-3 my-2">
+                        <button id="vsP2Left" onclick="checkVersusAnswer(2, 'left')" class="bread-card-3d flex-1 flex flex-col items-center justify-center py-2 outline-none">
+                            <span class="text-[9px] font-bold text-amber-800/60 mb-1">左 (⬅️)</span>
+                            <div class="fraction toasted-text font-black text-2xl sm:text-5xl">
+                                <span class="numerator" id="vsP2NumL">1</span>
+                                <span class="denominator" id="vsP2DenL">2</span>
+                            </div>
+                        </button>
+                        <button id="vsP2Right" onclick="checkVersusAnswer(2, 'right')" class="bread-card-3d flex-1 flex flex-col items-center justify-center py-2 outline-none">
+                            <span class="text-[9px] font-bold text-amber-800/60 mb-1">右 (➡️)</span>
+                            <div class="fraction toasted-text font-black text-2xl sm:text-5xl">
+                                <span class="numerator" id="vsP2NumR">3</span>
+                                <span class="denominator" id="vsP2DenR">4</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 🎒 多啦A夢道具收集冊 (成就圖鑑 Modal) -->
+    <div id="collectionModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-4 sm:p-5 shadow-2xl border-4 border-purple-400 relative max-h-[85vh] flex flex-col animate-[flipIn3D_0.3s_ease-out]">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100 flex-shrink-0">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 border-2 border-purple-400 flex items-center justify-center text-xl">🎒</div>
+                    <div>
+                        <h3 class="text-sm sm:text-base font-black text-slate-800">四次元百寶袋：道具收集冊</h3>
+                        <p class="text-[10px] sm:text-xs font-bold text-purple-600">達成指定數學挑戰，解鎖多啦A夢的秘密道具！</p>
+                    </div>
+                </div>
+                <button onclick="closeCollectionModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div id="gadgetGridContainer" class="overflow-y-auto py-3 grid grid-cols-2 sm:grid-cols-2 gap-2.5 flex-1 pr-1">
+                <!-- 動態塞入 8 個秘密道具卡片 -->
+            </div>
+
+            <button onclick="closeCollectionModal()" class="btn-3d w-full mt-2 py-2.5 bg-purple-600 text-white font-black rounded-xl text-sm flex-shrink-0">
+                關閉百寶袋
             </button>
         </div>
-    </main>
+    </div>
+
+    <!-- 🏆 雙人模式勝利結算 Modal -->
+    <div id="vsWinModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-5 max-w-sm w-full text-center shadow-2xl border-4 border-amber-400 relative animate-[flipIn3D_0.3s_ease-out]">
+            <div class="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-amber-400 overflow-hidden shadow-lg bg-sky-50">
+                <img id="vsWinnerImg" src="./image_c2c1fb.png" class="w-full h-full object-cover">
+            </div>
+            <div class="text-xs font-black bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full inline-block mb-1">⚔️ 雙人對戰結果揭曉</div>
+            <h2 id="vsWinnerTitle" class="text-2xl font-black text-slate-800 mb-1">1P 大雄隊 獲勝！</h2>
+            <p id="vsWinnerDesc" class="text-xs font-bold text-slate-500 mb-4">成功把胖虎推向對手陣營！反應超神速！</p>
+
+            <button onclick="startVersusGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-amber-400 to-amber-500 text-slate-900 font-black rounded-xl text-sm flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>再來一局 PK！</span>
+            </button>
+        </div>
+    </div>
 
     <!-- 🎁 第6關專屬：「方法識別」策略加分 Modal -->
     <div id="strategyModal" class="fixed inset-0 bg-slate-900/75 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
@@ -379,7 +564,6 @@
             
             <p class="text-xs font-bold text-slate-600 mb-2">請問比較下面這組分數，用哪種方法最快？<br><span class="text-rose-500">（答對獎勵：🚁 竹蜻蜓 +1 ＆ 距離大增！）</span></p>
 
-            <!-- 題目預覽 -->
             <div class="bg-amber-50 rounded-2xl p-3 mb-3 border-2 border-amber-200 flex items-center justify-around">
                 <div class="fraction toasted-text font-black text-3xl">
                     <span class="numerator" id="stratNumL">4</span>
@@ -392,7 +576,6 @@
                 </div>
             </div>
 
-            <!-- 5種方法選項 -->
             <div class="grid grid-cols-1 gap-2 text-xs sm:text-sm font-black mb-2">
                 <button onclick="checkStrategyAnswer(1)" class="btn-3d py-2 px-3 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-900 border border-sky-200 flex justify-between items-center">
                     <span>1. 同分母比較法（直接比分子）</span>
@@ -430,7 +613,7 @@
             </div>
             
             <h2 class="text-xl sm:text-2xl font-black text-rose-600 mb-1">糟糕！被胖虎抓到了！</h2>
-            <p class="text-xs font-bold text-slate-500 mb-3">別氣餒，看看錯題解析就能反敗為勝！</p>
+            <p class="text-xs font-bold text-slate-500 mb-3">銅鑼燒吃光了！看看錯題解析反敗為勝吧！</p>
             
             <div class="bg-rose-50 rounded-2xl p-2.5 mb-3 border border-rose-200 font-black text-slate-700 text-sm">
                 逃脫進度： <span id="finalScore" class="text-xl text-rose-600">0</span> / 10 題
@@ -494,9 +677,7 @@
                 <button onclick="closeMistakeModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold">✕</button>
             </div>
 
-            <div id="mistakeListContainer" class="overflow-y-auto py-3 space-y-3 text-xs flex-1 pr-1">
-                <!-- 動態塞入錯題卡片 -->
-            </div>
+            <div id="mistakeListContainer" class="overflow-y-auto py-3 space-y-3 text-xs flex-1 pr-1"></div>
 
             <button onclick="closeMistakeModal()" class="btn-3d w-full mt-2 py-2.5 bg-slate-800 text-white font-black rounded-xl text-sm flex-shrink-0">
                 訂正完畢，返回結算畫面
@@ -522,43 +703,32 @@
                 <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200">
                     <h4 class="font-black text-sky-900 mb-1">1. 同分母比較法</h4>
                     <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>當兩個分數的「分母相同」時，分子越大，分數就越大。</p>
-                    <div class="text-center font-black text-sm bg-white p-1.5 rounded-xl border border-sky-100">
-                        5/8 <span class="text-rose-500">></span> 3/8
-                    </div>
+                    <div class="text-center font-black text-sm bg-white p-1.5 rounded-xl border border-sky-100">5/8 <span class="text-rose-500">></span> 3/8</div>
                 </div>
-
                 <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200">
                     <h4 class="font-black text-amber-900 mb-1">2. 同分子比較法</h4>
                     <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>當兩個分數的「分子相同」時，分母越大，分數反而越小。</p>
-                    <div class="text-center font-black text-sm bg-white p-1.5 rounded-xl border border-amber-100">
-                        3/4 <span class="text-rose-500">></span> 3/7
-                    </div>
+                    <div class="text-center font-black text-sm bg-white p-1.5 rounded-xl border border-amber-100">3/4 <span class="text-rose-500">></span> 3/7</div>
                 </div>
-
                 <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
                     <h4 class="font-black text-emerald-900 mb-1">3. 通分法（最通用）</h4>
                     <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>找分母的「最小公倍數」化成同分母，再比較分子。</p>
                     <div class="bg-white p-2 rounded-xl border border-emerald-100 font-bold text-slate-700 text-[11px]">
-                        比較 2/3 和 3/4：將分母通分為 12。<br>
-                        2/3 = <span class="text-emerald-600">8/12</span>，3/4 = <span class="text-emerald-600">9/12</span>。所以 3/4 > 2/3！
+                        比較 2/3 和 3/4：將分母通分為 12。<br>2/3 = <span class="text-emerald-600">8/12</span>，3/4 = <span class="text-emerald-600">9/12</span>。所以 3/4 > 2/3！
                     </div>
                 </div>
-
                 <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200">
                     <h4 class="font-black text-purple-900 mb-1">4. 基準數法（比一半法）</h4>
                     <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>利用 1/2（一半）作為基準判斷。</p>
                     <div class="bg-white p-2 rounded-xl border border-purple-100 font-bold text-slate-700 text-[11px]">
-                        比較 4/9 和 6/11：<br>
-                        4/9 比一半(4.5/9)小，6/11 比一半(5.5/11)大。所以 <span class="text-purple-600">6/11 > 4/9</span>。
+                        比較 4/9 和 6/11：<br>4/9 比一半(4.5/9)小，6/11 比一半(5.5/11)大。所以 <span class="text-purple-600">6/11 > 4/9</span>。
                     </div>
                 </div>
-
                 <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200">
                     <h4 class="font-black text-rose-900 mb-1">5. 化為小數法</h4>
                     <p class="text-slate-700 mb-1 text-[11px]"><span class="font-bold">規則：</span>用「分子 ÷ 分母」除成小數，直接比大小。</p>
                     <div class="bg-white p-2 rounded-xl border border-rose-100 font-bold text-slate-700 text-[11px]">
-                        3/4 = <span class="text-rose-600">0.75</span>，7/10 = <span class="text-rose-600">0.7</span>。<br>
-                        因為 0.75 > 0.7，所以 3/4 > 7/10。
+                        3/4 = <span class="text-rose-600">0.75</span>，7/10 = <span class="text-rose-600">0.7</span>。因為 0.75 > 0.7，所以 3/4 > 7/10。
                     </div>
                 </div>
             </div>
@@ -574,6 +744,10 @@
         const wrongSound = new Audio('./wrong_sound.mp3'); 
         const correctSound = new Audio('./correct_sound.mp3');
 
+        // 遊戲模式：'single' 或 'versus'
+        let gameMode = 'single';
+
+        // 單人模式狀態
         let distance = 100;
         let gameLoopTimer = null;
         let score = 0;
@@ -582,15 +756,21 @@
         let currentLevel = 1; 
         let currentQuestionType = 1; 
         let isProcessing = false;
-        let dropRate = 0.32; 
+        let dropRate = 0.30; 
+        let shields = 2; // 🥞 銅鑼燒護盾數量
+        let usedGadgetInRound = false;
 
         let gadgetTimes = 3;
         let gadgetHints = 3;
-        let mistakesList = []; // 儲存本次錯題
+        let mistakesList = [];
 
         const WIN_SCORE = 10; 
-
         let currentData = { numL: 1, denL: 2, valL: 0.5, numR: 1, denR: 3, valR: 0.33, correctSide: 'left', qType: 1 };
+
+        // 雙人 PK 模式狀態
+        let vsTugPosition = 50; // 0 = 1P輸, 50 = 中間, 100 = 2P輸
+        let vsScore1 = 0;
+        let vsScore2 = 0;
 
         const METHOD_NAMES = {
             1: "同分母比較法",
@@ -600,10 +780,102 @@
             5: "化為小數法"
         };
 
+        // 🎒 8 大秘密道具圖鑑定義
+        const GADGET_COLLECTION = [
+            { id: 'bread', name: '記憶麵包', icon: '🍞', desc: '通過「關卡 1：同分母」或「關卡 2：同分子」' },
+            { id: 'copter', name: '竹蜻蜓', icon: '🚁', desc: '通過「關卡 3：通分法」' },
+            { id: 'magnifier', name: '透視放大鏡', icon: '🔍', desc: '通過「關卡 4：基準數」或「關卡 5：化小數」' },
+            { id: 'door', name: '任意門', icon: '🚪', desc: '單局達成 5 連擊 (COMBO x5)' },
+            { id: 'timemachine', name: '時光機', icon: '⏱️', desc: '不消耗任何道具（竹蜻蜓/放大鏡）通關任意關卡' },
+            { id: 'light', name: '縮小燈', icon: '🔦', desc: '通過「🔥 關卡 6：綜合挑戰」' },
+            { id: 'hoop', name: '穿透環', icon: '⭕', desc: '完美護盾：2 顆銅鑼燒都沒被吃掉並通關' },
+            { id: 'cannon', name: '空氣砲', icon: '💥', desc: '完成一場「⚔️ 雙人同機 PK 對戰」' }
+        ];
+
+        let unlockedGadgets = {};
+        try {
+            unlockedGadgets = JSON.parse(localStorage.getItem('dora_math_gadgets') || '{}');
+        } catch(e) { unlockedGadgets = {}; }
+
+        function unlockGadget(id) {
+            if (unlockedGadgets[id]) return;
+            unlockedGadgets[id] = true;
+            try {
+                localStorage.setItem('dora_math_gadgets', JSON.stringify(unlockedGadgets));
+            } catch(e) {}
+            updateCollectionBadge();
+
+            const item = GADGET_COLLECTION.find(g => g.id === id);
+            if (item) {
+                const toast = document.getElementById('achievementToast');
+                document.getElementById('toastIcon').innerText = item.icon;
+                document.getElementById('toastTitle').innerText = `${item.name}（${item.desc}）`;
+                toast.classList.remove('hidden');
+                setTimeout(() => toast.classList.add('hidden'), 3200);
+            }
+        }
+
+        function updateCollectionBadge() {
+            const count = Object.keys(unlockedGadgets).length;
+            document.getElementById('collectionBadge').innerText = `${count}/${GADGET_COLLECTION.length}`;
+        }
+
+        function openCollectionModal() {
+            const container = document.getElementById('gadgetGridContainer');
+            container.innerHTML = '';
+            GADGET_COLLECTION.forEach(g => {
+                const isUnlocked = !!unlockedGadgets[g.id];
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-2xl border-2 flex items-center space-x-3 transition-all ${isUnlocked ? 'bg-gradient-to-br from-amber-50 to-yellow-100 border-amber-400 shadow-sm' : 'bg-slate-100 border-slate-200 opacity-60'}`;
+                card.innerHTML = `
+                    <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0 ${isUnlocked ? 'bg-white shadow border border-amber-300' : 'bg-slate-200 grayscale'}">
+                        ${isUnlocked ? g.icon : '🔒'}
+                    </div>
+                    <div class="text-left min-w-0">
+                        <div class="font-black text-xs sm:text-sm ${isUnlocked ? 'text-slate-800' : 'text-slate-500'} flex items-center space-x-1">
+                            <span>${g.name}</span>
+                            ${isUnlocked ? '<span class="text-[9px] bg-emerald-500 text-white px-1.5 rounded-full">已獲得</span>' : ''}
+                        </div>
+                        <div class="text-[10px] font-bold text-slate-500 leading-tight mt-0.5">${g.desc}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            document.getElementById('collectionModal').classList.remove('hidden');
+        }
+
+        function closeCollectionModal() {
+            document.getElementById('collectionModal').classList.add('hidden');
+        }
+
+        // 切換單人 / 雙人同機對戰模式
+        function toggleGameMode() {
+            const btn = document.getElementById('modeToggleBtn');
+            const txt = document.getElementById('modeToggleText');
+            const singleView = document.getElementById('singlePlayerView');
+            const vsView = document.getElementById('versusPlayerView');
+
+            if (gameMode === 'single') {
+                gameMode = 'versus';
+                clearInterval(gameLoopTimer);
+                txt.innerText = '🏃‍♂️ 單人逃亡';
+                btn.className = "btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-sky-600 hover:bg-sky-500 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white";
+                singleView.classList.add('hidden');
+                vsView.classList.remove('hidden');
+                startVersusGame();
+            } else {
+                gameMode = 'single';
+                txt.innerText = '⚔️ 雙人PK';
+                btn.className = "btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-rose-500 hover:bg-rose-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white";
+                vsView.classList.add('hidden');
+                singleView.classList.remove('hidden');
+                startGame();
+            }
+        }
+
         // 產生視覺化等分長條圖 HTML
-        function createFractionBarHTML(num, den, isLarge = false) {
+        function createFractionBarHTML(num, den) {
             let cells = '';
-            // 若分母 <= 15，畫出每一格的等分線，幫助小學生數格子
             if (den <= 15) {
                 for (let i = 0; i < den; i++) {
                     let filled = i < num ? 'bg-gradient-to-t from-[#00A0E9] to-sky-400' : 'bg-white/70';
@@ -616,21 +888,20 @@
             return cells;
         }
 
-        // 產生詳細解題步驟說明 (供錯題本與提示使用)
         function getDetailedExplanation(data) {
             const { numL, denL, numR, denR, valL, valR, qType } = data;
             const sign = valL > valR ? '>' : '<';
             const winner = valL > valR ? `${numL}/${denL}` : `${numR}/${denR}`;
 
             if (qType === 1) {
-                return `【同分母比較法】兩邊分母都是 ${denL}（切成的份數一樣），直接比分子：因為 ${numL} ${sign} ${numR}，所以 ${winner} 比較大。`;
+                return `【同分母比較法】兩邊分母都是 ${denL}，直接比分子：因為 ${numL} ${sign} ${numR}，所以 ${winner} 比較大。`;
             } else if (qType === 2) {
-                return `【同分子比較法】兩邊分子都是 ${numL}（拿的塊數一樣），分母越小代表切得越大塊！因為分母 ${denL} ${valL > valR ? '<' : '>'} ${denR}，所以 ${winner} 比較大。`;
+                return `【同分子比較法】兩邊分子都是 ${numL}，分母越小代表切得越大塊！因為分母 ${denL} ${valL > valR ? '<' : '>'} ${denR}，所以 ${winner} 比較大。`;
             } else if (qType === 3) {
                 let l = (denL * denR) / gcd(denL, denR);
                 let nL = numL * (l / denL);
                 let nR = numR * (l / denR);
-                return `【通分法】找分母 ${denL} 和 ${denR} 的最小公倍數 ${l}。通分後變成 ${nL}/${l} 與 ${nR}/${l}，因為 ${nL}/${l} ${sign} ${nR}/${l}，所以 ${winner} 比較大。`;
+                return `【通分法】找分母 ${denL} 和 ${denR} 的最小公倍數 ${l}。通分後為 ${nL}/${l} 與 ${nR}/${l}，所以 ${winner} 比較大。`;
             } else if (qType === 4) {
                 let halfL = denL / 2;
                 let halfR = denR / 2;
@@ -640,7 +911,7 @@
             } else {
                 let dL = Number(valL.toFixed(3));
                 let dR = Number(valR.toFixed(3));
-                return `【化為小數法】將分子除以分母：${numL}/${denL} = ${dL}，${numR}/${denR} = ${dR}。因為 ${dL} ${sign} ${dR}，所以 ${winner} 比較大。`;
+                return `【化為小數法】分子除以分母：${numL}/${denL} = ${dL}，${numR}/${denR} = ${dR}。所以 ${winner} 比較大。`;
             }
         }
 
@@ -650,26 +921,35 @@
                 let btn = document.getElementById(`lvl${i}`);
                 if(i === lvl) {
                     btn.className = i === 6 
-                        ? "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-boss-active"
-                        : "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active";
+                        ? "snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-boss-active"
+                        : "snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-active";
                 } else {
                     btn.className = i === 6
-                        ? "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200"
-                        : "snap-start shrink-0 px-3 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive";
+                        ? "snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive text-rose-600 border-rose-200"
+                        : "snap-start shrink-0 px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-black transition-all lvl-btn-inactive";
                 }
             }
 
             const talk = document.getElementById('doraTalk');
             switch(lvl) {
-                case 1: talk.innerText = "「同分母，比分子！分子越大分數越大！」"; dropRate = 0.30; break;
-                case 2: talk.innerText = "「同分子，比分母！分母越小分數越大！」"; dropRate = 0.30; break;
-                case 3: talk.innerText = "「找出分母的最小公倍數，通分後再比較！」"; dropRate = 0.36; break;
-                case 4: talk.innerText = "「把它們跟 1/2 (一半) 比較看看，誰大於一半？」"; dropRate = 0.40; break;
-                case 5: talk.innerText = "「試著把它們除開，變成小數來比比看！」"; dropRate = 0.45; break;
-                case 6: talk.innerText = "「綜合挑戰！每答對3題會有出木杉的策略獎勵題喔！」"; dropRate = 0.55; break;
+                case 1: talk.innerText = "「同分母，比分子！分子越大分數越大！」"; dropRate = 0.28; break;
+                case 2: talk.innerText = "「同分子，比分母！分母越小分數越大！」"; dropRate = 0.28; break;
+                case 3: talk.innerText = "「找出分母的最小公倍數，通分後再比較！」"; dropRate = 0.34; break;
+                case 4: talk.innerText = "「把它們跟 1/2 (一半) 比較看看，誰大於一半？」"; dropRate = 0.38; break;
+                case 5: talk.innerText = "「試著把它們除開，變成小數來比比看！」"; dropRate = 0.42; break;
+                case 6: talk.innerText = "「綜合挑戰！每答對3題會有出木杉的策略獎勵題喔！」"; dropRate = 0.50; break;
             }
 
-            startGame();
+            if (gameMode === 'single') startGame();
+            else startVersusGame();
+        }
+
+        // 更新銅鑼燒護盾 UI
+        function updateShieldUI() {
+            const s1 = document.getElementById('shield1');
+            const s2 = document.getElementById('shield2');
+            s1.className = shields >= 1 ? "text-sm sm:text-base transition-all" : "text-sm sm:text-base dorayaki-lost";
+            s2.className = shields >= 2 ? "text-sm sm:text-base transition-all" : "text-sm sm:text-base dorayaki-lost";
         }
 
         function startGame() {
@@ -683,12 +963,15 @@
             combo = 0;
             maxCombo = 0;
             distance = 100;
+            shields = 2; // 重置 2 顆銅鑼燒護盾
+            usedGadgetInRound = false;
             gadgetTimes = 3;
             gadgetHints = 3;
             mistakesList = [];
             
             updateDashboard();
             updateComboUI();
+            updateShieldUI();
             updateGadgetUI();
             isProcessing = false;
 
@@ -699,9 +982,9 @@
         }
 
         function gameTick() {
-            if (isProcessing) return;
+            if (isProcessing || gameMode !== 'single') return;
 
-            let dynamicDropRate = dropRate + (score * 0.015); 
+            let dynamicDropRate = dropRate + (score * 0.012); 
             distance -= dynamicDropRate;
 
             if (distance <= 0) {
@@ -774,6 +1057,14 @@
             correctSound.currentTime = 0;
             correctSound.play().catch(e=>{});
             startConfetti();
+
+            // 檢查並解鎖成就道具
+            if (currentLevel === 1 || currentLevel === 2) unlockGadget('bread');
+            if (currentLevel === 3) unlockGadget('copter');
+            if (currentLevel === 4 || currentLevel === 5) unlockGadget('magnifier');
+            if (currentLevel === 6) unlockGadget('light');
+            if (!usedGadgetInRound) unlockGadget('timemachine');
+            if (shields === 2) unlockGadget('hoop');
         }
 
         function nextQuestion() {
@@ -781,8 +1072,7 @@
             generateFractions();
             renderFractions();
 
-            // 第 6 關綜合挑戰：每答對 3 題目 (例如 3, 6, 9 分時) 彈出「方法識別」獎勵題
-            if (currentLevel === 6 && score > 0 && score % 3 === 0 && !currentData.strategyAsked) {
+            if (gameMode === 'single' && currentLevel === 6 && score > 0 && score % 3 === 0 && !currentData.strategyAsked) {
                 currentData.strategyAsked = true;
                 openStrategyQuiz();
             }
@@ -856,33 +1146,51 @@
         }
 
         function renderFractions() {
-            const cardL = document.getElementById('breadLeft');
-            const cardR = document.getElementById('breadRight');
+            if (gameMode === 'single') {
+                const cardL = document.getElementById('breadLeft');
+                const cardR = document.getElementById('breadRight');
 
-            cardL.classList.remove('flip-in');
-            cardR.classList.remove('flip-in');
-            void cardL.offsetWidth;
-            cardL.classList.add('flip-in');
-            cardR.classList.add('flip-in');
+                cardL.classList.remove('flip-in');
+                cardR.classList.remove('flip-in');
+                void cardL.offsetWidth;
+                cardL.classList.add('flip-in');
+                cardR.classList.add('flip-in');
 
-            document.getElementById('numL').innerText = currentData.numL;
-            document.getElementById('denL').innerText = currentData.denL;
-            document.getElementById('numR').innerText = currentData.numR;
-            document.getElementById('denR').innerText = currentData.denR;
-            
-            // 預先繪製好視覺化分數長條圖 (預設隱藏，按放大鏡或答錯時顯示)
-            const vL = document.getElementById('visualLeft');
-            const vR = document.getElementById('visualRight');
-            vL.innerHTML = createFractionBarHTML(currentData.numL, currentData.denL);
-            vR.innerHTML = createFractionBarHTML(currentData.numR, currentData.denR);
-            vL.classList.add('hidden');
-            vR.classList.add('hidden');
+                document.getElementById('numL').innerText = currentData.numL;
+                document.getElementById('denL').innerText = currentData.denL;
+                document.getElementById('numR').innerText = currentData.numR;
+                document.getElementById('denR').innerText = currentData.denR;
+                
+                const vL = document.getElementById('visualLeft');
+                const vR = document.getElementById('visualRight');
+                vL.innerHTML = createFractionBarHTML(currentData.numL, currentData.denL);
+                vR.innerHTML = createFractionBarHTML(currentData.numR, currentData.denR);
+                vL.classList.add('hidden');
+                vR.classList.add('hidden');
 
-            document.getElementById('hintLeft').classList.add('hidden');
-            document.getElementById('hintRight').classList.add('hidden');
+                document.getElementById('hintLeft').classList.add('hidden');
+                document.getElementById('hintRight').classList.add('hidden');
+            } else {
+                // 雙人 PK 畫面渲染
+                document.getElementById('vsP1NumL').innerText = currentData.numL;
+                document.getElementById('vsP1DenL').innerText = currentData.denL;
+                document.getElementById('vsP1NumR').innerText = currentData.numR;
+                document.getElementById('vsP1DenR').innerText = currentData.denR;
+
+                document.getElementById('vsP2NumL').innerText = currentData.numL;
+                document.getElementById('vsP2DenL').innerText = currentData.denL;
+                document.getElementById('vsP2NumR').innerText = currentData.numR;
+                document.getElementById('vsP2DenR').innerText = currentData.denR;
+
+                ['vsP1Left', 'vsP1Right', 'vsP2Left', 'vsP2Right'].forEach(id => {
+                    const el = document.getElementById(id);
+                    el.className = 'bread-card-3d flex-1 flex flex-col items-center justify-center py-2 outline-none flip-in';
+                });
+                document.getElementById('p1Status').innerText = '請搶答！';
+                document.getElementById('p2Status').innerText = '請搶答！';
+            }
         }
 
-        // 顯示卡片上的視覺化長條圖與文字提示
         function showVisualAndTextHints() {
             const hl = document.getElementById('hintLeft');
             const hr = document.getElementById('hintRight');
@@ -913,16 +1221,16 @@
 
         function spawnFloatingText(x, y, text, colorClass) {
             const el = document.createElement('div');
-            el.className = `floating-score font-black text-xl sm:text-2xl drop-shadow-md ${colorClass}`;
-            el.style.left = `${x - 20}px`;
+            el.className = `floating-score font-black text-lg sm:text-2xl drop-shadow-md ${colorClass}`;
+            el.style.left = `${Math.max(20, Math.min(window.innerWidth - 150, x - 30))}px`;
             el.style.top = `${y - 20}px`;
             el.innerText = text;
             document.body.appendChild(el);
-            setTimeout(() => el.remove(), 800);
+            setTimeout(() => el.remove(), 850);
         }
 
         function checkAnswer(selectedSide, event) {
-            if (isProcessing) return;
+            if (isProcessing || gameMode !== 'single') return;
             isProcessing = true;
 
             const cardL = document.getElementById('breadLeft');
@@ -934,6 +1242,7 @@
                 score++;
                 combo++;
                 if (combo > maxCombo) maxCombo = combo;
+                if (combo >= 5) unlockGadget('door'); // 5連擊解鎖任意門
 
                 let boost = 16 + Math.min(combo * 2, 12);
                 distance = Math.min(100, distance + boost); 
@@ -961,12 +1270,7 @@
             } else {
                 combo = 0;
                 updateComboUI();
-
-                // 記錄到錯題本中
                 mistakesList.push({ ...currentData });
-
-                distance -= 25; 
-                if(distance < 0) distance = 0;
 
                 if (selectedSide === 'left') cardL.classList.add('wrong');
                 else cardR.classList.add('wrong');
@@ -974,20 +1278,27 @@
                 if (currentData.correctSide === 'left') cardL.classList.add('correct');
                 else cardR.classList.add('correct');
 
-                // 答錯時自動顯示視覺化分數長條圖，讓學生立刻看懂高低差異
                 showVisualAndTextHints();
+
+                // 🥞 檢查是否有銅鑼燒護盾可以抵擋胖虎
+                if (shields > 0) {
+                    shields--;
+                    updateShieldUI();
+                    spawnFloatingText(clientX, clientY, `🥞 銅鑼燒擋住胖虎！(免扣距離)`, 'text-amber-500');
+                } else {
+                    distance -= 25; 
+                    if(distance < 0) distance = 0;
+                    spawnFloatingText(clientX, clientY, `距離 -25%`, 'text-rose-600');
+                }
 
                 const body = document.getElementById('mainBody');
                 body.classList.remove('screen-shake');
                 void body.offsetWidth;
                 body.classList.add('screen-shake');
 
-                spawnFloatingText(clientX, clientY, `距離 -25%`, 'text-rose-600');
-
                 wrongSound.currentTime = 0;
                 wrongSound.play().catch(e=>{});
 
-                // 稍微延長停留時間 (1.4秒)，讓學生看一眼視覺化長條圖
                 setTimeout(() => {
                     isProcessing = false;
                     nextQuestion();
@@ -996,9 +1307,124 @@
             updateChaseUI();
         }
 
+        // ================= ⚔️ 雙人同機對戰邏輯 =================
+        function startVersusGame() {
+            document.getElementById('vsWinModal').classList.add('hidden');
+            stopConfetti();
+            vsTugPosition = 50;
+            vsScore1 = 0;
+            vsScore2 = 0;
+            isProcessing = false;
+            updateVersusUI();
+            nextQuestion();
+        }
+
+        function updateVersusUI() {
+            document.getElementById('vsScore1').innerText = vsScore1;
+            document.getElementById('vsScore2').innerText = vsScore2;
+            const runner = document.getElementById('vsGianRunner');
+            runner.style.left = `${Math.max(5, Math.min(95, vsTugPosition))}%`;
+        }
+
+        function checkVersusAnswer(player, selectedSide) {
+            if (isProcessing || gameMode !== 'versus') return;
+            isProcessing = true;
+
+            const isCorrect = (selectedSide === currentData.correctSide);
+            const btnLeft = document.getElementById(player === 1 ? 'vsP1Left' : 'vsP2Left');
+            const btnRight = document.getElementById(player === 1 ? 'vsP1Right' : 'vsP2Right');
+            const chosenBtn = selectedSide === 'left' ? btnLeft : btnRight;
+
+            if (isCorrect) {
+                chosenBtn.classList.add('correct');
+                correctSound.currentTime = 0;
+                correctSound.play().catch(e=>{});
+
+                if (player === 1) {
+                    vsScore1++;
+                    vsTugPosition += 16; // 把胖虎推向 2P
+                    document.getElementById('p1Status').innerText = '🔥 搶答成功！';
+                    document.getElementById('p2Status').innerText = '慢了一步！';
+                } else {
+                    vsScore2++;
+                    vsTugPosition -= 16; // 把胖虎推向 1P
+                    document.getElementById('p2Status').innerText = '🔥 搶答成功！';
+                    document.getElementById('p1Status').innerText = '慢了一步！';
+                }
+            } else {
+                chosenBtn.classList.add('wrong');
+                wrongSound.currentTime = 0;
+                wrongSound.play().catch(e=>{});
+
+                if (player === 1) {
+                    vsTugPosition -= 16; // 答錯懲罰：胖虎朝 1P 衝過來
+                    document.getElementById('p1Status').innerText = '💥 答錯了！胖虎逼近！';
+                } else {
+                    vsTugPosition += 16; // 答錯懲罰：胖虎朝 2P 衝過來
+                    document.getElementById('p2Status').innerText = '💥 答錯了！胖虎逼近！';
+                }
+            }
+
+            updateVersusUI();
+
+            // 檢查雙人勝負條件 (推到底 或 先拿 10 分)
+            if (vsTugPosition >= 95 || vsScore1 >= 10) {
+                setTimeout(() => triggerVersusWin(1), 450);
+                return;
+            }
+            if (vsTugPosition <= 5 || vsScore2 >= 10) {
+                setTimeout(() => triggerVersusWin(2), 450);
+                return;
+            }
+
+            setTimeout(() => {
+                isProcessing = false;
+                nextQuestion();
+            }, 650);
+        }
+
+        function triggerVersusWin(winnerPlayer) {
+            unlockGadget('cannon'); // 解鎖空氣砲
+            const modal = document.getElementById('vsWinModal');
+            const img = document.getElementById('vsWinnerImg');
+            const title = document.getElementById('vsWinnerTitle');
+            const desc = document.getElementById('vsWinnerDesc');
+
+            if (winnerPlayer === 1) {
+                img.src = './image_c2c1fb.png';
+                title.innerText = '🏆 1P 大雄隊 獲勝！';
+                title.className = 'text-2xl font-black text-sky-600 mb-1';
+                desc.innerText = `比分 ${vsScore1} : ${vsScore2}，成功把胖虎推向對手！`;
+            } else {
+                img.src = './image_c2c236.png';
+                title.innerText = '🏆 2P 出木杉隊 獲勝！';
+                title.className = 'text-2xl font-black text-emerald-600 mb-1';
+                desc.innerText = `比分 ${vsScore2} : ${vsScore1}，快狠準的數學實力！`;
+            }
+
+            modal.classList.remove('hidden');
+            startConfetti();
+        }
+
+        // 支援實體鍵盤快捷鍵 (單人與雙人皆支援)
+        window.addEventListener('keydown', (e) => {
+            if (isProcessing) return;
+            if (gameMode === 'single') {
+                if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') checkAnswer('left');
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') checkAnswer('right');
+            } else if (gameMode === 'versus') {
+                // 1P 使用 A / D
+                if (e.key === 'a' || e.key === 'A') checkVersusAnswer(1, 'left');
+                if (e.key === 'd' || e.key === 'D') checkVersusAnswer(1, 'right');
+                // 2P 使用 左右方向鍵
+                if (e.key === 'ArrowLeft') checkVersusAnswer(2, 'left');
+                if (e.key === 'ArrowRight') checkVersusAnswer(2, 'right');
+            }
+        });
+
         // 🎁 綜合關卡：「方法識別」加分機制
         function openStrategyQuiz() {
-            isProcessing = true; // 暫停胖虎追逐
+            isProcessing = true;
             document.getElementById('stratNumL').innerText = currentData.numL;
             document.getElementById('stratDenL').innerText = currentData.denL;
             document.getElementById('stratNumR').innerText = currentData.numR;
@@ -1011,9 +1437,7 @@
             const fb = document.getElementById('stratFeedback');
             fb.classList.remove('hidden');
 
-            // 檢查是否符合該題最推薦的解法 (或合理的通用解法)
             let isCorrect = (chosenMethod === currentData.qType);
-            // 若題目分母相同選1、分子相同選2
             if (currentData.denL === currentData.denR && chosenMethod === 1) isCorrect = true;
             if (currentData.numL === currentData.numR && chosenMethod === 2) isCorrect = true;
 
@@ -1031,7 +1455,6 @@
                 fb.innerText = `💡 這題其實用「${METHOD_NAMES[currentData.qType]}」會更快喔！繼續加油！`;
             }
 
-            // 同時把提示打開幫助學生做這題
             showVisualAndTextHints();
 
             setTimeout(() => {
@@ -1040,13 +1463,11 @@
             }, 1500);
         }
 
-        // 📓 開啟錯題回顧視窗
         function openMistakeModal() {
             const container = document.getElementById('mistakeListContainer');
             container.innerHTML = '';
 
             mistakesList.forEach((item, idx) => {
-                const sign = item.valL > item.valR ? '>' : '<';
                 const card = document.createElement('div');
                 card.className = "bg-slate-50 p-3 rounded-2xl border-2 border-slate-200 space-y-2";
                 card.innerHTML = `
@@ -1096,13 +1517,16 @@
         function resetCardStyles() {
             const cardL = document.getElementById('breadLeft');
             const cardR = document.getElementById('breadRight');
-            cardL.className = 'bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none';
-            cardR.className = 'bread-card-3d flex flex-col items-center justify-between py-2.5 px-2 outline-none';
+            if (cardL && cardR) {
+                cardL.className = 'bread-card-3d flex flex-col items-center justify-between py-2 px-2 outline-none';
+                cardR.className = 'bread-card-3d flex flex-col items-center justify-between py-2 px-2 outline-none';
+            }
         }
 
         function useGadgetTime() {
             if (gadgetTimes <= 0 || isProcessing || distance <= 0) return;
             gadgetTimes--;
+            usedGadgetInRound = true;
             distance = Math.min(100, distance + 35);
             updateChaseUI();
             updateGadgetUI();
@@ -1113,6 +1537,7 @@
         function useGadgetHint() {
             if (gadgetHints <= 0 || isProcessing || distance <= 0) return;
             gadgetHints--;
+            usedGadgetInRound = true;
             updateGadgetUI();
             showVisualAndTextHints();
         }
@@ -1138,7 +1563,7 @@
         function openKnowledgeModal() { document.getElementById('knowledgeModal').classList.remove('hidden'); }
         function closeKnowledgeModal() { document.getElementById('knowledgeModal').classList.add('hidden'); }
 
-        // 彩帶特效邏輯
+        // 彩帶特效
         let confettiAnimationId = null;
         function startConfetti() {
             const canvas = document.getElementById('confettiCanvas');
@@ -1190,7 +1615,10 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
-        window.onload = () => { setLevel(1); };
+        window.onload = () => {
+            updateCollectionBadge();
+            setLevel(1);
+        };
     </script>
 </body>
 </html>
