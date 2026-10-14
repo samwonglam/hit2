@@ -253,7 +253,7 @@
             <div class="flex items-center space-x-1.5 shrink-0">
                 <button id="modeToggleBtn" onclick="toggleGameMode()" class="btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-rose-500 hover:bg-rose-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white">
                     <i class="fa-solid fa-user-group"></i>
-                    <span id="modeToggleText">⚔️ 雙人PK</span>
+                    <span id="modeToggleText">⚔️ 對戰</span>
                 </button>
 
                 <button onclick="openCollectionModal()" class="btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-purple-500 hover:bg-purple-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white relative">
@@ -403,7 +403,7 @@
             </div>
         </div>
 
-        <!-- ================= ⚔️ 雙人同機 PK 模式視圖 (iPad 課堂神器) ================= -->
+        <!-- ================= ⚔️ 對戰模式視圖 (iPad 課堂神器) ================= -->
         <div id="versusPlayerView" class="hidden flex-1 flex flex-col w-full min-h-0 justify-between">
             
             <!-- 胖虎拔河軌道區 -->
@@ -534,19 +534,19 @@
         </div>
     </div>
 
-    <!-- 🏆 雙人模式勝利結算 Modal -->
+    <!-- 🏆 對戰模式勝利結算 Modal -->
     <div id="vsWinModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl p-5 max-w-sm w-full text-center shadow-2xl border-4 border-amber-400 relative animate-[flipIn3D_0.3s_ease-out]">
             <div class="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-amber-400 overflow-hidden shadow-lg bg-sky-50">
                 <img id="vsWinnerImg" src="./image_c2c1fb.png" class="w-full h-full object-cover">
             </div>
-            <div class="text-xs font-black bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full inline-block mb-1">⚔️ 雙人對戰結果揭曉</div>
+            <div class="text-xs font-black bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full inline-block mb-1">⚔️ 對戰結果揭曉</div>
             <h2 id="vsWinnerTitle" class="text-2xl font-black text-slate-800 mb-1">1P 大雄隊 獲勝！</h2>
             <p id="vsWinnerDesc" class="text-xs font-bold text-slate-500 mb-4">成功把胖虎推向對手陣營！反應超神速！</p>
 
             <button onclick="startVersusGame()" class="btn-3d w-full py-3 bg-gradient-to-b from-amber-400 to-amber-500 text-slate-900 font-black rounded-xl text-sm flex items-center justify-center space-x-2">
                 <i class="fa-solid fa-rotate-right"></i>
-                <span>再來一局 PK！</span>
+                <span>再來一局對戰！</span>
             </button>
         </div>
     </div>
@@ -767,7 +767,7 @@
         const WIN_SCORE = 10; 
         let currentData = { numL: 1, denL: 2, valL: 0.5, numR: 1, denR: 3, valR: 0.33, correctSide: 'left', qType: 1 };
 
-        // 雙人 PK 模式狀態
+        // 對戰模式狀態
         let vsTugPosition = 50; // 0 = 1P輸, 50 = 中間, 100 = 2P輸
         let vsScore1 = 0;
         let vsScore2 = 0;
@@ -789,7 +789,7 @@
             { id: 'timemachine', name: '時光機', icon: '⏱️', desc: '不消耗任何道具（竹蜻蜓/放大鏡）通關任意關卡' },
             { id: 'light', name: '縮小燈', icon: '🔦', desc: '通過「🔥 關卡 6：綜合挑戰」' },
             { id: 'hoop', name: '穿透環', icon: '⭕', desc: '完美護盾：2 顆銅鑼燒都沒被吃掉並通關' },
-            { id: 'cannon', name: '空氣砲', icon: '💥', desc: '完成一場「⚔️ 雙人同機 PK 對戰」' }
+            { id: 'cannon', name: '空氣砲', icon: '💥', desc: '完成一場「⚔️ 對戰」' }
         ];
 
         let unlockedGadgets = {};
@@ -848,7 +848,7 @@
             document.getElementById('collectionModal').classList.add('hidden');
         }
 
-        // 切換單人 / 雙人同機對戰模式
+        // 切換單人 / 對戰模式
         function toggleGameMode() {
             const btn = document.getElementById('modeToggleBtn');
             const txt = document.getElementById('modeToggleText');
@@ -865,7 +865,7 @@
                 startVersusGame();
             } else {
                 gameMode = 'single';
-                txt.innerText = '⚔️ 雙人PK';
+                txt.innerText = '⚔️ 對戰';
                 btn.className = "btn-3d px-2.5 py-1 sm:px-3 sm:py-1.5 bg-rose-500 hover:bg-rose-400 text-white font-black text-[11px] sm:text-xs rounded-xl flex items-center space-x-1 border-2 border-white";
                 vsView.classList.add('hidden');
                 singleView.classList.remove('hidden');
@@ -1171,7 +1171,7 @@
                 document.getElementById('hintLeft').classList.add('hidden');
                 document.getElementById('hintRight').classList.add('hidden');
             } else {
-                // 雙人 PK 畫面渲染
+                // 對戰畫面渲染
                 document.getElementById('vsP1NumL').innerText = currentData.numL;
                 document.getElementById('vsP1DenL').innerText = currentData.denL;
                 document.getElementById('vsP1NumR').innerText = currentData.numR;
@@ -1307,7 +1307,7 @@
             updateChaseUI();
         }
 
-        // ================= ⚔️ 雙人同機對戰邏輯 =================
+        // ================= ⚔️ 對戰邏輯 =================
         function startVersusGame() {
             document.getElementById('vsWinModal').classList.add('hidden');
             stopConfetti();
@@ -1406,7 +1406,7 @@
             startConfetti();
         }
 
-        // 支援實體鍵盤快捷鍵 (單人與雙人皆支援)
+        // 支援實體鍵盤快捷鍵 (單人與對戰皆支援)
         window.addEventListener('keydown', (e) => {
             if (isProcessing) return;
             if (gameMode === 'single') {
